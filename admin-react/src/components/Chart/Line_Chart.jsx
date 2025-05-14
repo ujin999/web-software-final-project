@@ -1,0 +1,84 @@
+import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
+
+const labels = ["Day 1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"];
+const data = {
+  labels,
+  datasets: [
+    {
+      label: "Visitor",
+      data: [6000, 7000, 7000, 13000, 10000, 12000, 13000],
+      borderColor: "#F4A261",
+      backgroundColor: (context) => {
+        const ctx = context.chart.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
+        gradient.addColorStop(0, "rgba(244, 162, 97, 0.4)");
+        gradient.addColorStop(1, "rgba(244, 162, 97, 0.1)");
+        return gradient;
+      },
+      borderWidth: 2,
+      fill: true,
+      tension: 0,
+      pointRadius: 0,
+    },
+
+  ],
+};
+
+const options = {
+  responsive: true,
+  interaction: {
+    intersect: false,
+  },
+  scales: {
+    x: {
+      grid: {
+        display: false,
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      position: "bottom",
+    },
+    title: {
+      display: true,
+      text: "Visitor",
+      align: "start", 
+      padding: {
+        bottom: 20,
+      },
+    },
+  },
+};
+
+const AreaLineChart = () => {
+  return (
+    <div style={{ width: 600, height: 300 }}>
+      <Line data={data} options={options} />
+    </div>
+  );
+};
+
+export default AreaLineChart;

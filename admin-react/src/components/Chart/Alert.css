@@ -1,0 +1,115 @@
+.alert-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a73e8;
+  }
+  
+  .report-btn {
+    background-color: #e8eaf6;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #1a73e8;
+    cursor: pointer;
+  }
+  
+  .report-btn:hover {
+    background-color: #d1d7f0;
+  }
+  
+  .task-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #5f6368;
+    margin-bottom: 8px;
+    padding: 0 8px;
+  }
+  
+  .task-labels span {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .task-labels span:first-child {
+    text-align: left;
+  }
+  
+  .task-labels span:last-child {
+    text-align: right;
+  }
+  
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #202124;
+  }
+  
+  .task-item:last-child {
+    border-bottom: none;
+  }
+  
+  .project-name {
+    flex: 1;
+    color: #202124;
+  }
+  
+  .risk {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 12px;
+  }
+  
+  .risk.unconfirmed {
+    background-color: #fce8e6;
+    color: #d93025;
+  }
+  
+  .risk.confirmed {
+    background-color: #e6f4ea;
+    color: #1e8e3e;
+  }
+  
+  .risk.planned {
+    background-color: #e8eaf6;
+    color: #1a73e8;
+  }
+  
+  .risk.delayed {
+    background-color: #fef7e0;
+    color: #fbbc04;
+  }
+  
+  .end-date {
+    flex: 1;
+    text-align: center;
+    color: #202124;
+  }
+  
+  .done {
+    flex: 1;
+    text-align: right;
+    color: #202124;
+  }
