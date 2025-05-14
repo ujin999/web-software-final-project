@@ -3,11 +3,11 @@ import "./Alert.css";
 
 const Alert = () => {
   const tasks = [
-    { project: "Website Redesign", risk: "confirmed", endDate: "2025-09-05", done: "system" },
-    { project: "Mobile App Launch", risk: "unconfirmed", endDate: "2025-09-08", done: "user" },
-    { project: "Software Upgrade", risk: "unconfirmed", endDate: "2025-09-12", done: "system" },
-    { project: "Quarterly Report", risk: "confirmed", endDate: "2025-09-14", done: "system" },
-    { project: "Marketing Campaign", risk: "confirmed", endDate: "2025-09-18", done: "user" },
+    { project: "User Error", risk: "confirmed", endDate: "2025-09-05", done: "system" },
+    { project: "New User", risk: "unconfirmed", endDate: "2025-09-08", done: "user" },
+    { project: "System Error", risk: "unconfirmed", endDate: "2025-09-12", done: "system" },
+    { project: "Leave User", risk: "confirmed", endDate: "2025-09-14", done: "system" },
+    { project: "User LV.UP", risk: "confirmed", endDate: "2025-09-18", done: "user" },
     ];
 
   return (
