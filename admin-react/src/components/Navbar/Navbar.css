@@ -1,4 +1,4 @@
-.app-header {
+.navbar {
   height: 60px;
   background-color: white;
   color: white;
@@ -9,7 +9,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.container {
+.container-fluid {
   display: flex;
   align-items: center; /* 세로 방향 중앙 정렬 */
 }
@@ -20,19 +20,40 @@
 }
 
 .navbar-logo {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .logo-text {
   margin-left: 8px;
   font-size: 20px;
-  color: black;
+  font-weight: 900;
+  color: rgb(73, 73, 73);
   position: relative;
 }
 
+.user-container {
+  color: black;
+}
+
+.dropdown button {
+  background-color: white;
+  margin: 0;
+  border: 0;
+}
+
+.dropdown .btn-sm {
+  color: black;
+}
+
+.dropdown span {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(73, 73, 73);
+}
+
 @media (max-width: 512px) {
-  .app-header {
-    display: none;
+  .navbar {
+    display: none !important;
   }
 }

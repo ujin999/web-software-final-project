@@ -40,7 +40,8 @@
 }
 
 .btn-text {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 400;
   padding-left: 5px;
   color: var(--main-text);
 }
@@ -85,7 +86,7 @@
 }
 
 .btn-toggle-nav .submenu-item span {
-  margin-left: 30px;
+  margin-left: 40px;
 }
 
 .btn-toggle-nav li:hover {

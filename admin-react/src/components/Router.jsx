@@ -6,6 +6,7 @@ import Navbar from 'components/Navbar/Navbar'
 
 import './Router.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 export default function Router() {
   return (
