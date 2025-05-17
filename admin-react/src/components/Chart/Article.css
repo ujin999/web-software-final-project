@@ -1,0 +1,22 @@
+.article-container {
+    padding: 20px;
+  }
+  
+  .table th,
+  .table td {
+    vertical-align: middle;
+  }
+  
+  .badge {
+    font-size: 0.9em;
+    padding: 5px 10px;
+  }
+  
+  .btn-link i {
+    font-size: 1.2em;
+  }
+  
+  .pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
