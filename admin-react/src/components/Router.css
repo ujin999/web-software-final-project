@@ -32,5 +32,6 @@
 
 .main {
   padding: 10px;
-  height: 1500px;
+  /* height: 1500px; */
+  margin: 50px;
 }
