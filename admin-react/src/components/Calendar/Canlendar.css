@@ -50,3 +50,11 @@
   background-color: rgba(0, 0, 0, 0);
   color: #2b3d4e85;
 }
+
+.rbc-off-range-bg {
+  background-color: #d0d5dc73 !important;
+}
+
+.rbc-off-range {
+  color: #d0d5dc73 !important;
+}

@@ -8,11 +8,17 @@ import './Canlendar.css'
 
 import CustomToolbar from './CustomToolbar';
 import CustomEvent from './CustomEvent';
+import CustomAgendaEvent from './CustomAgendaEvent';
 
 /**
  * BigCalendar 기반의 커스텀 캘린더
  * @returns {JSX.Element} Calendar 컴포넌트
  */
+
+const formats = {
+  agendaDateFormat: (date, culture, localizer) =>
+    format(date, 'M월 d일(E)', { locale: ko }),
+};
 
 const dayStyleGetter = (date) => {
   const day = date.getDay(); // 0: 일요일, 6: 토요일
@@ -78,6 +84,7 @@ const events = Array.from({ length: 1 }, (_, k) => k).flatMap((i) => {
   }))
 })
 
+
 export default function ManagementCalendar() {
   const { defaultDate } = useMemo(() => {
     return { defaultDate: new Date() };
@@ -101,7 +108,12 @@ export default function ManagementCalendar() {
             components={{
               toolbar: CustomToolbar,
               event: CustomEvent,
-            }}
+              agenda: {
+                event: CustomAgendaEvent
+                }
+              }
+            }
+          formats={formats}
         />
     </div>
 );
