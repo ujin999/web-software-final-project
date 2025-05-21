@@ -1,37 +1,109 @@
-.container {
-    max-width: 1200px;
-  }
-  
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    text-align: left;
-  }
-  
-  th {
-    font-weight: bold;
-  }
-  
-  button {
-    border: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  img {
-    vertical-align: middle;
-  }
-  
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
+.community-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.community-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.community-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.community-header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.community-header select {
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.community-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.community-table thead {
+  background-color: #f5f5f5;
+  color: #555;
+}
+
+.community-table th,
+.community-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.name-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.name-cell img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.action-icons button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin-right: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.action-icons button:hover {
+  transform: scale(1.2);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  gap: 8px;
+}
+
+.pagination button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #eee;
+}
+
+.pagination button.active {
+  background-color: #ABCDDE;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

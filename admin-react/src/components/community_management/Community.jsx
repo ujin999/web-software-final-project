@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Community.css';
+import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 
 const Community = () => {
   const customers = [
@@ -14,47 +15,76 @@ const Community = () => {
     { name: 'Leonie Meister', id: '#INV9027', date: '15 Mar, 2023' },
   ];
 
+  const itemsPerPage = 5;
+  const totalPages = Math.ceil(customers.length / itemsPerPage);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentData = customers.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const changePage = (page) => {
+    if (page >= 1 && page <= totalPages) setCurrentPage(page);
+  };
+
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-xl font-bold">All Customers List</h2>
-        <select className="border rounded p-1">
-          <option>This Month</option>
-        </select>
-      </div>
-      <table className="w-full bg-white border rounded-lg shadow">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="p-2"><input type="checkbox" /></th>
-            <th className="p-2">Customer Name</th>
-            <th className="p-2">Invoice ID</th>
-            <th className="p-2">Due Date</th>
-            <th className="p-2">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {customers.map((customer, index) => (
-            <tr key={index} className="border-t">
-              <td className="p-2"><input type="checkbox" /></td>
-              <td className="p-2 flex items-center">
-                <img src={`https://i.pravatar.cc/40?img=${index + 1}`} alt={customer.name} className="w-8 h-8 rounded-full mr-2" />
-                {customer.name}
-              </td>
-              <td className="p-2">{customer.id}</td>
-              <td className="p-2">{customer.date}</td>
-              <td className="p-2 flex space-x-2">
-                <button className="text-blue-500"><span className="sr-only">View</span>👁️</button>
-                <button className="text-blue-500"><span className="sr-only">Edit</span>✏️</button>
-                <button className="text-red-500"><span className="sr-only">Delete</span>🗑️</button>
-              </td>
+    <div className="community-container">
+      <div className="community-card">
+        <div className="community-header">
+          <h2>All User</h2>
+          <select>
+            <option>This Month</option>
+            <option>Last Month</option>
+          </select>
+        </div>
+
+        <table className="community-table">
+          <thead>
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>Customer Name</th>
+              <th>Invoice ID</th>
+              <th>Due Date</th>
+              <th>Action</th>
             </tr>
+          </thead>
+          <tbody>
+            {currentData.map((customer, i) => (
+              <tr key={i}>
+                <td><input type="checkbox" /></td>
+                <td className="name-cell">
+                  <img
+                    src={`https://i.pravatar.cc/40?img=${i + 1}`}
+                    alt={customer.name}
+                  />
+                  {customer.name}
+                </td>
+                <td>{customer.id}</td>
+                <td>{customer.date}</td>
+                <td className="action-icons">
+                <button><FaEye/></button>
+                <button><FaEdit/></button>
+                <button><FaTrash/></button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="pagination">
+          <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}>←</button>
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              className={currentPage === i + 1 ? 'active' : ''}
+              onClick={() => changePage(i + 1)}
+            >
+              {i + 1}
+            </button>
           ))}
-        </tbody>
-      </table>
-      <div className="flex justify-end mt-4 space-x-2">
-        <button className="px-4 py-2 bg-blue-500 text-white rounded">Previous</button>
-        <span>1 2 3</span>
-        <button className="px-4 py-2 bg-blue-500 text-white rounded">Next</button>
+          <button onClick={() => changePage(currentPage + 1)} disabled={currentPage === totalPages}>→</button>
+        </div>
       </div>
     </div>
   );
