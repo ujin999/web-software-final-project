@@ -1,31 +1,110 @@
 import React, { useState } from 'react';
 import './NoticeTable.css';
 
-const allNotices = Array.from({ length: 30 }).map((_, i) => ({
-  id: i + 1,
-  title: `공지사항 ${i + 1}번`,
-  writer: '관리자',
-  date: '2025.05.04 14:16',
-  views: Math.floor(Math.random() * 10),
-  important: i + 1 === 29 || i + 1 === 30 
-}));
+const allNotices = [
+  {
+    id: 1,
+    title: '5월 서비스 점검 안내',
+    writer: '관리자',
+    date: '2025.05.01 10:00',
+    views: 14,
+    important: true
+  },
+  {
+    id: 2,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 3,
+    title: '회원가입 관련 문제 해결법',
+    writer: '고객지원',
+    date: '2025.04.29 09:00',
+    views: 3,
+    important: false
+  },
+  {
+    id: 4,
+    title: '시스템 업그레이드 안내',
+    writer: '개발팀',
+    date: '2025.04.28 16:40',
+    views: 25,
+    important: true
+  },
+  {
+    id: 5,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 6,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 7,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 8,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 9,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 10,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  },
+  {
+    id: 11,
+    title: '이벤트 참여 방법 안내',
+    writer: '운영팀',
+    date: '2025.04.30 18:23',
+    views: 8,
+    important: false
+  }
+];
 
 const NoticeTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
   const newCount = 5;
 
-  // 중요/일반 항목 분리
   const importantNotices = allNotices.filter(n => n.important).sort((a, b) => a.id - b.id);
   const normalNotices = allNotices.filter(n => !n.important).sort((a, b) => a.id - b.id);
 
-  // new 마크 지정: 번호 오름차순 기준 상위 newCount 개
   const normalNoticesWithNew = normalNotices.map((item, index) => ({
     ...item,
     isNew: index < newCount,
   }));
 
-  // 1페이지에는 중요 + 나머지, 2페이지부터는 일반만
   const pages = [];
   const firstPage = [
     ...importantNotices,
@@ -42,9 +121,7 @@ const NoticeTable = () => {
 
   return (
     <div className="notice-container">
-      <h2 className="page-title">
-        공지사항 <span className="page-subtitle">회사 공지사항을 조회합니다.</span>
-      </h2>
+      <h2 className="page-title">공지사항</h2>
       <table className="notice-table">
         <thead>
           <tr>
