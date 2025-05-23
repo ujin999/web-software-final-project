@@ -1,5 +1,7 @@
 import React from 'react';
 import './NoticeList.css';
+import { FaPlus } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // 👈 추가
 
 const notices = [
   { id: 1, title: '2017년 바로 점검', date: '2017-11-22', author: '관리자' },
@@ -9,9 +11,17 @@ const notices = [
 ];
 
 const NoticeList = () => {
+  const navigate = useNavigate(); // 👈 useNavigate 훅 사용
+
   return (
     <div className="notice-wrapper">
-      <h3 className="notice-title">NOTICE</h3>
+      <div className="notice-header">
+        <div className="notice-title">NOTICE</div>
+        <FaPlus
+          className="notice-plus-icon"
+          onClick={() => navigate('/notices')} // 👈 클릭 시 이동
+        />
+      </div>
       <ul className="notice-list">
         {notices.map((notice) => (
           <li key={notice.id} className="notice-item">
