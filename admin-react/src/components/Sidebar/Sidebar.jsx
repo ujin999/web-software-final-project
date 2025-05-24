@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faColumns, faUser, faPager, faEnvelope, faCalendar, faTools, faQuestionCircle, faBullhorn, faTasks } from '@fortawesome/free-solid-svg-icons'
 import './Sidebar.css';
@@ -17,12 +17,29 @@ export default function Sidebar() {
     usage: false,
   });
 
+  const [activeMenu, setActiveMenu] = useState('');
+
+  const toggleMenuAndSetActive = (menuName) => {
+    setOpenMenus(prev => ({
+      ...prev,
+      [menuName]: !prev[menuName],
+    }));
+  
+    setActiveMenu(prev => (prev === menuName ? '' : menuName));
+  };
+  
   const toggleMenu = (element, menuName) => {
       
     setOpenMenus(prev => ({
       ...prev,
       [menuName]: !prev[menuName],
     }));
+  };
+
+  const navigate = useNavigate();
+
+  const goToPage = (query) => {
+    navigate(query); // 이동할 경로
   };
 
   return (
@@ -33,7 +50,12 @@ export default function Sidebar() {
         <ul className="sidebar-ul list-unstyled ps-0">
           {/* 1번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" onClick={() => toggleMenu(this, 'dashboard')}>
+            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'dashboard' ? 'active' : ''}`}
+            onClick={() => { 
+              toggleMenu(this, 'dashboard');
+              // setActiveMenu('dashboard');
+              // toggleMenuAndSetActive('dashboard');
+            }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faColumns} size='sm' />
                 대시보드
@@ -47,7 +69,10 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.dashboard ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/dashboard/main' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'dashboard-main' ? 'active' : ''}`}
+                onClick={() => { 
+                  toggleMenuAndSetActive('dashboard-main');
+                }}>
                   <span>메인 페이지</span>
                 </Link>
               </li>
@@ -66,7 +91,12 @@ export default function Sidebar() {
 
           {/* 2번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'user')}>
+            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'user' ? 'active' : ''}`}
+            onClick={() => {
+              toggleMenu(this, 'user');
+              // setActiveMenu('user');
+              // toggleMenuAndSetActive('user');
+            }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faUser} size='sm' />
                 사용자
@@ -80,7 +110,10 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.user ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link to='/user/check' className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/user/check' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'user-data' ? 'active' : ''}`}
+                  onClick={() => { 
+                    toggleMenuAndSetActive('user-data');
+                }}>
                   <span>사용자 데이터</span>
                 </Link>
               </li>
@@ -94,7 +127,11 @@ export default function Sidebar() {
 
           {/* 3번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'community')}>
+            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'community' ? 'active' : ''}`}
+            onClick={() =>{
+              toggleMenu(this, 'community');
+              // toggleMenuAndSetActive('community')
+              }}>
               <span className='btn-text'>
               <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faPager} size='sm' />
                 커뮤니티
@@ -108,7 +145,10 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.community ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link to='/community/check' className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/community/check' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'community-management' ? 'active' : ''}`}
+                    onClick={() => { 
+                      toggleMenuAndSetActive('community-management');
+                }}>
                   <span>커뮤니티 관리</span>
                 </Link>
               </li>
@@ -122,7 +162,11 @@ export default function Sidebar() {
 
           {/* 4번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'email')}>
+            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'email' ? 'active' : ''}`}
+            onClick={() => {
+                toggleMenu(this, 'email')
+                // toggleMenuAndSetActive('email')
+              }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faEnvelope} size='sm' />
                 이메일
@@ -141,7 +185,10 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/email/send' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'email-form' ? 'active' : ''}`}
+                      onClick={() => { 
+                        toggleMenuAndSetActive('email-form');
+                }}>
                   <span>이메일 쓰기</span>
                 </Link>
               </li>
@@ -150,7 +197,11 @@ export default function Sidebar() {
 
           {/* 5번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'calendar')}>
+          <button to='/qna' className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'calendar' ? 'active' : ''}`}
+            onClick={() => {
+              goToPage('/calendar');
+              setActiveMenu('calendar');
+              }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faCalendar} size='sm' />
                 캘린더
@@ -161,19 +212,14 @@ export default function Sidebar() {
             </button>
           </li>
 
-          <div className={`submenu ${openMenus.calendar ? 'openMenus' : ''}`}>
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <Link to='/calendar' className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
-                  <span>캘린더</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* 6번 Dashboard */}
+          {/* 6번 위젯 */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'widget')}>
+            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'widget' ? 'active' : ''}`}
+              onClick={() => { 
+                // toggleMenu(this, 'widget');
+                // setActiveMenu('widget');
+                toggleMenuAndSetActive('widget');
+              }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faTools} size='sm' />
                 위젯
@@ -194,9 +240,13 @@ export default function Sidebar() {
             </ul>
           </div>
 
-          {/* 7번 Dashboard */}
+          {/* 7번 Q&A */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'QnA')}>
+            <button to='/qna' className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'qna' ? 'active' : ''}`}
+            onClick={() => {
+              goToPage('/qna');
+              setActiveMenu('qna');
+              }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faQuestionCircle} size='sm' />
                 Q&A
@@ -207,19 +257,13 @@ export default function Sidebar() {
             </button>
           </li>
 
-          <div className={`submenu ${openMenus.QnA ? 'openMenus' : ''}`}>
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
-                  <span>Q&A</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
           {/* 8번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'announcement')}>
+            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'notice' ? 'active' : ''}`}
+            onClick={() => {
+              goToPage('/notice');
+              setActiveMenu('notice');
+              }}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faBullhorn} size='sm' />
                 공지사항
@@ -229,19 +273,9 @@ export default function Sidebar() {
               </svg>
             </button>
           </li>
-
-          <div className={`submenu ${openMenus.announcement ? 'openMenus' : ''}`}>
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-              <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
-                  <span>공지사항</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
           
           {/* 9번 Dashboard */}
-          <li className="mb-1">
+          {/* <li className="mb-1">
             <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'usage')}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faTasks} size='sm' />
@@ -261,7 +295,7 @@ export default function Sidebar() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
         </ul>
         </div>
