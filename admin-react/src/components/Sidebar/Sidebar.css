@@ -90,8 +90,8 @@
 }
 
 .btn-toggle-nav li:hover {
-  background-color: #5d85fb;
-  border-radius: 5px;
+  background-color: #566ae6;
+  border-radius: 3px;
 }
 
 .bi-play-circle-fill {
@@ -100,4 +100,13 @@
 
 .horizon-line {
   border: solid 1px rgb(129, 131, 131);
+}
+
+.btn.active {
+  background-color: var(--main-accent);
+  color: white;
+}
+
+.submenu-item.active {
+  background-color: #566ae6;
 }

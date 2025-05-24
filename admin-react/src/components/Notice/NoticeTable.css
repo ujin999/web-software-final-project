@@ -1,5 +1,5 @@
 .notice-container {
-    max-width: 1100px;
+    max-width: 1300px;
     margin: 40px auto;
     padding: 24px;
     background: white;
@@ -7,7 +7,7 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     font-family: 'Segoe UI', sans-serif;
   }
-  
+
   .page-title {
     font-size: 20px;
     font-weight: bold;
@@ -32,7 +32,7 @@
   .notice-table td {
     border-bottom: 1px solid #eee;
     padding: 12px;
-    text-align: left;
+    text-align: center;
   }
   
   .notice-table thead {
@@ -72,9 +72,13 @@
     cursor: pointer;
     color: #333;
   }
+
+  .qna-write {
+    background-color:#434343 !important;
+  }
   
   .pagination button.page-active {
-    background-color: #add8e6;
+    background-color: #434343 !important;
     color: white;
     border-radius: 50%;
     font-weight: bold;

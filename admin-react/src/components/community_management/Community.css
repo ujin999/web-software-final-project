@@ -98,7 +98,7 @@
 }
 
 .pagination button.active {
-  background-color: #ABCDDE;
+  background-color: #434343;
   color: white;
   font-weight: bold;
 }

@@ -1,5 +1,5 @@
 .qna-wrapper {
-    max-width: 900px;
+    max-width: 1300px;
     margin: 40px auto;
     font-family: 'Segoe UI', sans-serif;
     background-color: #fff;
@@ -26,7 +26,7 @@
   .qna-table td {
     padding: 12px;
     border-bottom: 1px solid #ddd;
-    text-align: left;
+    text-align: center;
   }
   
   .qna-table th {

@@ -12,6 +12,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import BasicTable from './Table/Basic-Table';
 import EmailSendBox from './Email/Send/EmailSendBox';
+import DashboardMain from './dashboard/DashboardMain';
+import QnA from "components/QnA/QnA";
+import NoticeTable from './Notice/NoticTable';
 
 export default function Router() {
   return (
@@ -23,6 +26,9 @@ export default function Router() {
         <div className="main-content">
           <div className="main">
           <Routes>
+            {/* 대시보드 */}
+            <Route path="/dashboard/main" element={<DashboardMain></DashboardMain>}></Route>
+
             {/* 사용자 데이터 */}
             <Route path="/user/check" element={<BasicTable />}></Route>
 
@@ -37,7 +43,11 @@ export default function Router() {
             {/* 캘린더 */}
             <Route path="/calendar" element={<Calendar />}></Route>
 
-            
+            {/* Q&A */}
+            <Route path="/qna" element={<QnA></QnA>}></Route>
+
+            {/* 공지사항 */}
+            <Route path="/notice" element={<NoticeTable></NoticeTable>}></Route>
             
 
             <Route path="/" element={<Test />} />{' '}

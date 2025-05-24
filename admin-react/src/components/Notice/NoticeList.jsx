@@ -11,7 +11,7 @@ const notices = [
 ];
 
 const NoticeList = () => {
-  const navigate = useNavigate(); // 👈 useNavigate 훅 사용
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   return (
     <div className="notice-wrapper">
@@ -19,7 +19,7 @@ const NoticeList = () => {
         <div className="notice-title">NOTICE</div>
         <FaPlus
           className="notice-plus-icon"
-          onClick={() => navigate('/notices')} // 👈 클릭 시 이동
+          onClick={() => navigate('/notices')} // 클릭 시 이동
         />
       </div>
       <ul className="notice-list">

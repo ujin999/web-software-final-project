@@ -25,3 +25,31 @@
 .form-group:nth-child(3) {
   margin-top: 30px;
 }
+
+.button-box {
+  width: 100px;
+  height: 35px;
+}
+
+.button-box span {
+  font-size: 14px;
+}
+
+.ioclose-icon {
+  font-size: 15px;
+  line-height: 1;
+  margin-right: 2px;
+}
+
+.fa-paper-plane {
+  font-size: 12px;
+}
+
+.button-box:nth-child(1) {
+  background-color: #3558a9;
+  border-color: #3558a9;
+}
+
+.button-box:nth-child(1):hover {
+  background-color: #2859cc;
+}
