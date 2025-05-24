@@ -1,7 +1,7 @@
 .notice-wrapper {
-  max-width: 600px;
+  width: 500px;
   margin: 0 auto;
-  font-family: 'Segoe UI', sans-serif;
+  /* font-family: 'Segoe UI', sans-serif; */
   padding: 16px;
   background-color: white;
   border-radius: 12px;
