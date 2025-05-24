@@ -10,7 +10,7 @@ export default function Sidebar() {
     user: false,
     community: false,
     email: false,
-    calander: false,
+    calendar: false,
     widget: false,
     QnA: false,
     announcement: false,
@@ -80,7 +80,7 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.user ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/user/check' className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
                   <span>사용자 데이터</span>
                 </Link>
               </li>
@@ -108,13 +108,13 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.community ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/community/check' className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
                   <span>커뮤니티 관리</span>
                 </Link>
               </li>
               <li>
                 <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
-                  <span>커뮤니티 체크</span>
+                  <span>커뮤니티 조회</span>
                 </Link>
               </li>
             </ul>
@@ -150,7 +150,7 @@ export default function Sidebar() {
 
           {/* 5번 Dashboard */}
           <li className="mb-1">
-            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'calander')}>
+            <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'calendar')}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faCalendar} size='sm' />
                 캘린더
@@ -161,10 +161,10 @@ export default function Sidebar() {
             </button>
           </li>
 
-          <div className={`submenu ${openMenus.calander ? 'openMenus' : ''}`}>
+          <div className={`submenu ${openMenus.calendar ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/calendar' className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
                   <span>캘린더</span>
                 </Link>
               </li>

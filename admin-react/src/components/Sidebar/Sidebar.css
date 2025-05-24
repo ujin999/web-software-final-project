@@ -43,7 +43,7 @@
   font-size: 16px;
   font-weight: 400;
   padding-left: 5px;
-  color: var(--main-text);
+  color: rgb(73, 73, 73);
 }
 
 .menu-icon {
@@ -95,7 +95,7 @@
 }
 
 .bi-play-circle-fill {
-  color: var(--main-text);
+  color: rgb(95, 95, 95);
 }
 
 .horizon-line {

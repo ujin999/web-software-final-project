@@ -1,0 +1,27 @@
+.btn-group-toggle > .btn,
+.btn-group-toggle > .btn-group > .btn {
+  margin-bottom: 0; }
+.btn-group-toggle > .btn input[type="radio"],
+.btn-group-toggle > .btn input[type="checkbox"],
+.btn-group-toggle > .btn-group > .btn input[type="radio"],
+.btn-group-toggle > .btn-group > .btn input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none; }
+
+  .toolbar .btn-group {
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+
+.compose-content {
+  margin-top: 20px !important;
+}
+
+.main .form-group .form-control {
+  border-radius: 0px;
+}
+
+.form-group:nth-child(3) {
+  margin-top: 30px;
+}
