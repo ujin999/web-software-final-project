@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+import { CgClose } from "react-icons/cg";
+
 import './EmailSendBox.css'
 
 export default function EmailSendBox() {
@@ -75,12 +77,14 @@ export default function EmailSendBox() {
         </form>
       </div>
 
-      <div className="text-left mt-3">
-        <button className="btn btn-primary me-2" type="button">
-          <i className="fa fa-paper-plane me-2"></i> Send
+      <div className="button-group d-flex justify-content-end mt-3">
+        <button className="button-box btn btn-primary me-2 d-flex justify-content-center align-items-center" type="button">
+          <i className="fa fa-paper-plane me-2"></i>
+          <span>Send</span>
         </button>
-        <button className="btn btn-dark" type="button">
-          <i className="ti-close me-2"></i> Discard
+        <button className="button-box btn btn-dark d-flex justify-content-center align-items-center" type="button">
+          <CgClose className='ioclose-icon'></CgClose>
+          <span>Discard</span>
         </button>
       </div>
     </div>
