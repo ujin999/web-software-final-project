@@ -28,13 +28,13 @@ const data = {
   datasets: [
     {
       label: "Visitor",
-      data: [6000, 7000, 7000, 13000, 10000, 12000, 13000],
-      borderColor: "#F4A261",
+      data: [6000, 7000, 7000, 7600, 10000, 12000, 13000],
+      borderColor: "rgb(16, 29, 107)",
       backgroundColor: (context) => {
         const ctx = context.chart.ctx;
         const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-        gradient.addColorStop(0, "rgba(244, 162, 97, 0.4)");
-        gradient.addColorStop(1, "rgba(244, 162, 97, 0.1)");
+        gradient.addColorStop(0, "rgba(18, 32, 138, 0.4)");
+        gradient.addColorStop(1, "rgba(43, 87, 192, 0.31)");
         return gradient;
       },
       borderWidth: 2,
@@ -75,7 +75,7 @@ const options = {
 
 const AreaLineChart = () => {
   return (
-    <div style={{ width: 600, height: 300 }}>
+    <div style={{ width: 700, height: 400 }}>
       <Line data={data} options={options} />
     </div>
   );
