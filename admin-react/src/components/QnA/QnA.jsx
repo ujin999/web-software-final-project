@@ -35,7 +35,7 @@ const QnA = () => {
 
   return (
     <div className="qna-wrapper">
-      <h3 className="page-title">Q&A</h3>
+      {/* <h3 className="page-title">Q&A</h3> */}
       <table className="qna-table">
         <thead>
           <tr>
