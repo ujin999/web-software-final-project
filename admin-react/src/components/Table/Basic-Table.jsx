@@ -39,19 +39,19 @@ export default function BasicTable() {
           </thead>
           <tbody>
             {[
-              ['Tiger Nixon', 'System Architect', 'Edinburgh', 61, '2011/04/25', '$320,800'],
-              ['Garrett Winters', 'Accountant', 'Tokyo', 63, '2011/07/25', '$170,750'],
-              ['Ashton Cox', 'Junior Technical Author', 'San Francisco', 66, '2009/01/12', '$86,000'],
-              ['Cedric Kelly', 'Senior Javascript Developer', 'Edinburgh', 22, '2012/03/29', '$433,060'],
-              ['Airi Satou', 'Accountant', 'Tokyo', 33, '2008/11/28', '$162,700'],
-              ['Brielle Williamson', 'Integration Specialist', 'New York', 61, '2012/12/02', '$372,000'],
-              ['Herrod Chandler', 'Sales Assistant', 'San Francisco', 59, '2012/08/06', '$137,500'],
-              ['Rhona Davidson', 'Integration Specialist', 'Tokyo', 55, '2010/10/14', '$327,900'],
-              ['Colleen Hurst', 'Javascript Developer', 'San Francisco', 39, '2009/09/15', '$205,500'],
-              ['Sonya Frost', 'Software Engineer', 'Edinburgh', 23, '2008/12/13', '$103,600'],
-              ['Sonya Frost', 'Software Engineer', 'Edinburgh', 23, '2008/12/13', '$103,600'],
-              ['Sonya Frost', 'Software Engineer', 'Edinburgh', 23, '2008/12/13', '$103,600'],
-              ['Sonya Frost', 'Software Engineer', 'Edinburgh', 23, '2008/12/13', '$103,600'],
+              ['김지훈', '시스템 아키텍트', '서울', 41, '2024/03/15', '₩320,800'],
+              ['박서연', '회계사', '부산', 36, '2023/11/02', '₩170,750'],
+              ['이준호', '초급 기술 문서 작성자', '대전', 29, '2023/07/19', '₩86,000'],
+              ['최민재', '시니어 자바스크립트 개발자', '서울', 32, '2022/12/08', '₩433,060'],
+              ['정하늘', '회계사', '부산', 34, '2022/08/21', '₩162,700'],
+              ['오예린', '통합 전문가', '대구', 31, '2022/01/30', '₩372,000'],
+              ['홍석진', '영업 보조', '대전', 28, '2021/09/14', '₩137,500'],
+              ['윤지우', '통합 전문가', '부산', 35, '2021/03/03', '₩327,900'],
+              ['강수민', '자바스크립트 개발자', '대전', 33, '2020/11/25', '₩205,500'],
+              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
+              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
+              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
+              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
             ].map((row, index) => (
               <tr key={index}>
                 {row.map((cell, i) => (
