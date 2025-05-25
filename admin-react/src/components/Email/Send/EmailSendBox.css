@@ -1,3 +1,17 @@
+.email-box {
+  border: 1px solid #dee2e6;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.email-right-box {
+  width: 70%;
+  /* height: 90%; */
+  margin: auto;
+}
+
 .btn-group-toggle > .btn,
 .btn-group-toggle > .btn-group > .btn {
   margin-bottom: 0; }
@@ -53,3 +67,9 @@
 .button-box:nth-child(1):hover {
   background-color: #2859cc;
 }
+
+.email-plane-icon {
+  color: white !important;
+  font-size: 15px !important;
+}
+

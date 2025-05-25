@@ -1,0 +1,41 @@
+.email-list-preview {
+  margin-bottom: 0;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.custom-pagination {
+  margin-bottom: 12px;
+}
+
+.email-move-btn {
+  width: 8%;
+  min-width: 55px;
+  color: white !important;
+  background-color: #3558a9;
+  text-align: center;
+
+  padding: 5px !important;
+  border: none;
+
+  justify-content: center;
+}
+
+.email-move-btn:hover {
+  background-color: #2859cc; /* 연한 회색 */
+}
+
+.email-move-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #2859cc;
+}
+
+.email-move-btn:nth-child(1) {
+  margin-right: 3px;
+}
+
+.email-list-btn-group {
+  display: flex;
+}
