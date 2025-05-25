@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { Calendar, dateFnsLocalizer} from 'react-big-calendar';
+import { Calendar, dateFnsLocalizer } from 'react-big-calendar';
 import { format, getDay, parse, startOfWeek } from 'date-fns';
 import { ko } from 'date-fns/locale';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './Canlendar.css'
+import './Canlendar.css';
 
 import CustomToolbar from './CustomToolbar';
 import CustomEvent from './CustomEvent';
@@ -26,8 +26,8 @@ const dayStyleGetter = (date) => {
     return {
       style: {
         backgroundColor: '#ffe6e6', // 연한 빨간색
-        color: '#d63031',          // 진한 빨간 텍스트
-      }
+        color: '#d63031', // 진한 빨간 텍스트
+      },
     };
   }
 
@@ -35,22 +35,28 @@ const dayStyleGetter = (date) => {
     return {
       style: {
         backgroundColor: '#e6f0ff', // 연한 파란색
-        color: '#0984e3',           // 진한 파란 텍스트
-      }
+        color: '#0984e3', // 진한 파란 텍스트
+      },
     };
   }
   return {}; // 평일은 기본 스타일
 };
 
 const locales = { ko };
-const localizer = dateFnsLocalizer({ format, parse, startOfWeek, getDay, locales });
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek,
+  getDay,
+  locales,
+});
 
 const resources = [
   { resourceId: 1, resourceTitle: 'Board room' },
   { resourceId: 2, resourceTitle: 'Training room' },
-]
+];
 
-let eventId = 0
+let eventId = 0;
 const events = Array.from({ length: 1 }, (_, k) => k).flatMap((i) => {
   const currentResource = resources[i % resources.length];
   const now = new Date();
@@ -81,9 +87,8 @@ const events = Array.from({ length: 1 }, (_, k) => k).flatMap((i) => {
     start: date1,
     end: date2,
     resourceId: currentResource.resourceId,
-  }))
-})
-
+  }));
+});
 
 export default function ManagementCalendar() {
   const { defaultDate } = useMemo(() => {
@@ -91,30 +96,31 @@ export default function ManagementCalendar() {
   }, []);
 
   return (
-    <div style={{ height: '80vh', width: '90%', margin: 'auto' }}>
+    <div style={{backgroundColor: 'white', height: '80vh', border: '1px solid rgba(208, 213, 220, 0.4)'}}>
+      <div style={{ height: '75vh', width: '80%', margin: 'auto', marginTop:'20px'}}>
         <Calendar
-            culture='ko'
-            defaultDate={defaultDate}
-            localizer={localizer}
-            events={events}
-            startAccessor='start'
-            endAccessor='end'
-            step={60}
-            style={{ height: '100%' }}
-            timeslots={1}
-            views={['month', 'agenda']}
-            defaultView='month'
-            dayPropGetter={dayStyleGetter}
-            components={{
-              toolbar: CustomToolbar,
-              event: CustomEvent,
-              agenda: {
-                event: CustomAgendaEvent
-                }
-              }
-            }
+          culture="ko"
+          defaultDate={defaultDate}
+          localizer={localizer}
+          events={events}
+          startAccessor="start"
+          endAccessor="end"
+          step={60}
+          style={{ height: '100%' }}
+          timeslots={1}
+          views={['month', 'agenda']}
+          defaultView="month"
+          dayPropGetter={dayStyleGetter}
+          components={{
+            toolbar: CustomToolbar,
+            event: CustomEvent,
+            agenda: {
+              event: CustomAgendaEvent,
+            },
+          }}
           formats={formats}
         />
+      </div>
     </div>
-);
+  );
 }

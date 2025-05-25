@@ -1,26 +1,4 @@
 import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-} from "chart.js";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
 
 const labels = ["Day 1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"];
 const data = {
@@ -75,7 +53,7 @@ const options = {
 
 const AreaLineChart = () => {
   return (
-    <div style={{ width: 700, height: 400 }}>
+    <div style={{ width: 800, height: 400 }}>
       <Line data={data} options={options} />
     </div>
   );

@@ -9,6 +9,7 @@ import './EmailSendBox.css'
 export default function EmailSendBox() {
   return (
     <div>
+    <div className='email-box'>
     <div className="email-right-box">
       <div className="toolbar" role="toolbar">
         <div className="btn-group mb-3">
@@ -79,7 +80,7 @@ export default function EmailSendBox() {
 
       <div className="button-group d-flex justify-content-end mt-3">
         <button className="button-box btn btn-primary me-2 d-flex justify-content-center align-items-center" type="button">
-          <i className="fa fa-paper-plane me-2"></i>
+          <i className="fa fa-paper-plane me-2 email-plane-icon"></i>
           <span>Send</span>
         </button>
         <button className="button-box btn btn-dark d-flex justify-content-center align-items-center" type="button">
@@ -87,6 +88,7 @@ export default function EmailSendBox() {
           <span>Discard</span>
         </button>
       </div>
+    </div>
     </div>
     </div>
   );
