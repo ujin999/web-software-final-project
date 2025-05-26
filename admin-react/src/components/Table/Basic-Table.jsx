@@ -12,7 +12,10 @@ export default function BasicTable() {
 
   useEffect(() => {
     if (tableRef.current) {
-      const dataTable = new DataTable(tableRef.current);
+      const dataTable = new DataTable(tableRef.current, {
+        perPage: 15,
+      });
+      
       return () => {
         dataTable.destroy();
       };
@@ -21,9 +24,16 @@ export default function BasicTable() {
 
   return (
     <div className="card mb-4">
-      <div className="card-header">
-        <i className="fas fa-table me-1"></i>
-        DataTable Example
+      <div className="card-header d-flex align-items-center justify-content-between">
+        <div>
+          <i className="fas fa-table me-2"></i>
+          <span>데이터 테이블</span>
+        </div>
+        <select className="custom-select-dropdown">
+          <option value="notices">📢&nbsp; 공지사항</option>
+          <option value="errors">❗&nbsp;  오류 로그</option>
+          <option value="users">👤&nbsp;  사용자 목록</option>
+        </select>
       </div>
       <div className="card-body">
         <table ref={tableRef} className="table">
