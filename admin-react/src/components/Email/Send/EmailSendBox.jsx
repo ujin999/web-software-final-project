@@ -12,12 +12,12 @@ export default function EmailSendBox() {
     <div className='email-box'>
     <div className="email-right-box">
       <div className="toolbar" role="toolbar">
-        <div className="btn-group mb-3">
+        {/* <div className="btn-group mb-3">
           <button type="button" className="btn btn-light"><i className="fa fa-archive"></i></button>
           <button type="button" className="btn btn-light"><i className="fa fa-exclamation-circle"></i></button>
           <button type="button" className="btn btn-light"><i className="fa fa-trash"></i></button>
-        </div>
-        <div className="btn-group mb-3">
+        </div> */}
+        {/* <div className="btn-group mb-3">
           <button type="button" className="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
             <i className="fa fa-folder"></i> <b className="caret ms-2"></b>
           </button>
@@ -28,8 +28,8 @@ export default function EmailSendBox() {
             <Link className="dropdown-item" href="#">Updates</Link>
             <Link className="dropdown-item" href="#">Forums</Link>
           </div>
-        </div>
-        <div className="btn-group mb-3">
+        </div> */}
+        {/* <div className="btn-group mb-3">
           <button type="button" className="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
             <i className="fa fa-tag"></i> <b className="caret ms-2"></b>
           </button>
@@ -40,8 +40,8 @@ export default function EmailSendBox() {
             <Link className="dropdown-item" href="#">Promotions</Link>
             <Link className="dropdown-item" href="#">Forums</Link>
           </div>
-        </div>
-        <div className="btn-group mb-3">
+        </div> */}
+        {/* <div className="btn-group mb-3">
           <button type="button" className="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
             More <span className="caret ms-2"></span>
           </button>
@@ -52,7 +52,7 @@ export default function EmailSendBox() {
             <Link className="dropdown-item" href="#">Add Star</Link>
             <Link className="dropdown-item" href="#">Mute</Link>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="compose-content mt-5">
