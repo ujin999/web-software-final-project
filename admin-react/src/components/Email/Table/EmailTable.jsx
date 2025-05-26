@@ -8,7 +8,7 @@ export default function EmailTable({ emails }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [emailData, setEmailData] = useState(emails);
 
-  const itemsPerPage = 12;
+  const itemsPerPage = 11;
   const totalPages = Math.ceil(emailData.length / itemsPerPage);
 
   const currentItems = emailData.slice(
@@ -20,11 +20,18 @@ export default function EmailTable({ emails }) {
     <div className="container">
       {/* Pagination Controls */}
       <div className="custom-pagination d-flex justify-content-between align-items-center">
-        <span>
-          페이지 {currentPage} / {totalPages}
-        </span>
+        <div className="toolbar" role="toolbar">
+          <div className="custom-toolbar-btn-group btn-group mb-3">
+            <button type="button" className="btn btn-light"><i className="fa fa-archive email-toolbar-fa"></i></button>
+            <button type="button" className="btn btn-light"><i className="fa fa-exclamation-circle email-toolbar-fa"></i></button>
+            <button type="button" className="btn btn-light"><i className="fa fa-trash email-toolbar-fa"></i></button>
+          </div>
+        </div>
 
         <div className='email-list-btn-group'>
+          <span>
+            페이지 {currentPage} / {totalPages}
+          </span>
           <button
             className="btn btn-outline-primary email-move-btn"
             disabled={currentPage === 1}

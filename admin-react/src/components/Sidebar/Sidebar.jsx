@@ -81,11 +81,11 @@ export default function Sidebar() {
                   <span>테이블</span>
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
                   <span>수정</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -180,7 +180,10 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.email ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/email/list' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'email-check' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('email-check');
+                  }}>
                   <span>이메일 확인</span>
                 </Link>
               </li>
@@ -213,7 +216,7 @@ export default function Sidebar() {
           </li>
 
           {/* 6번 위젯 */}
-          <li className="mb-1">
+          {/* <li className="mb-1">
             <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'widget' ? 'active' : ''}`}
               onClick={() => { 
                 // toggleMenu(this, 'widget');
@@ -238,7 +241,7 @@ export default function Sidebar() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* 7번 Q&A */}
           <li className="mb-1">

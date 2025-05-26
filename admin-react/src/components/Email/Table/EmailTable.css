@@ -7,6 +7,7 @@
 
 .custom-pagination {
   margin-bottom: 12px;
+  align-items: center;
 }
 
 .email-move-btn {
@@ -23,7 +24,11 @@
 }
 
 .email-move-btn:hover {
-  background-color: #2859cc; /* 연한 회색 */
+  background-color: #2859cc;
+}
+
+.email-move-btn:active {
+  background-color: #2c64e7 !important;
 }
 
 .email-move-btn:disabled {
@@ -38,4 +43,37 @@
 
 .email-list-btn-group {
   display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.email-list-btn-group span {
+  margin-right: 5px;
+  font-size: 15px;
+  color: rgb(109, 109, 109);
+}
+
+.custom-toolbar-btn-group {
+  margin: 0 !important;
+  display: flex;
+  gap: 3px;
+}
+
+.custom-toolbar-btn-group button {
+  padding: 9px !important;
+  background-color: #3558a9;
+  size: 10px;
+}
+
+.custom-toolbar-btn-group button:hover {
+  background-color: #2859cc;
+}
+
+.custom-toolbar-btn-group button:active {
+  background-color: #2c64e7 !important;
+}
+
+.email-toolbar-fa {
+  color: white;
+  font-size: 18px;
 }

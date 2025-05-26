@@ -11,7 +11,7 @@ const Article = () => {
     date: `11 May, 2025`,
   }));
 
-  const itemsPerPage = 5;
+  const itemsPerPage = 9;
   const totalPages = Math.ceil(initialData.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
 
