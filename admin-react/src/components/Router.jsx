@@ -1,4 +1,5 @@
 import { Route, Routes, Navigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
 import Test from 'pages/test/Test';
 import TestNew from 'pages/test/TestNew';
 import Sidebar from 'components/Sidebar/Sidebar';
@@ -139,6 +140,16 @@ const emailData = [
 ];
 
 export default function Router() {
+  const [noticeTableList, setNoticeTalbeList] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5001/api/notices')
+      .then(res => res.json())
+      .then(data => {
+        setNoticeTalbeList(data);
+      });
+  }, []);
+
   return (
     <>
       {/* * 경로 설정 */}
@@ -171,7 +182,7 @@ export default function Router() {
             <Route path="/qna" element={<QnA></QnA>}></Route>
 
             {/* 공지사항 */}
-            <Route path="/notice" element={<NoticeTable></NoticeTable>}></Route>
+            <Route path="/notice" element={<NoticeTable noticeList={ noticeTableList }></NoticeTable>}></Route>
             
 
             <Route path="/" element={<Test />} />{' '}

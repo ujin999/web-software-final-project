@@ -1,100 +1,11 @@
 import React, { useState } from 'react';
 import './NoticeTable.css';
 
-const allNotices = [
-  {
-    id: 1,
-    title: '5월 서비스 점검 안내',
-    writer: '관리자',
-    date: '2025.05.01 10:00',
-    views: 14,
-    important: true
-  },
-  {
-    id: 2,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 3,
-    title: '회원가입 관련 문제 해결법',
-    writer: '고객지원',
-    date: '2025.04.29 09:00',
-    views: 3,
-    important: false
-  },
-  {
-    id: 4,
-    title: '시스템 업그레이드 안내',
-    writer: '개발팀',
-    date: '2025.04.28 16:40',
-    views: 25,
-    important: true
-  },
-  {
-    id: 5,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 6,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 7,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 8,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 9,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 10,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  },
-  {
-    id: 11,
-    title: '이벤트 참여 방법 안내',
-    writer: '운영팀',
-    date: '2025.04.30 18:23',
-    views: 8,
-    important: false
-  }
-];
+const NoticeTable = ({ noticeList }) => {
+  const allNotices = noticeList || [];
 
-const NoticeTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 12;
   const newCount = 5;
 
   const importantNotices = allNotices.filter(n => n.important).sort((a, b) => a.id - b.id);

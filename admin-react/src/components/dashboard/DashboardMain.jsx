@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import './DashboardMain.css'
 
@@ -11,21 +11,96 @@ import LineChartV2 from 'components/Chart/Line-Chart-v2';
 import LineChartV3 from 'components/Chart/Line-Chart-v3';
 
 export default function DashboardMain() {
+  // 카드 데이터
+  const [CardData, setCardData] = useState(null);
+  // 방문 유저 데이터
+  const [totalVisitors, setTotalVisitors] = useState(null);
+  // 라인v2 차트 데이터
+  const [lineV2Data, setLineV2Data] = useState({ labels: [], data: [] });
+  // 라인v3 차트 데이터
+  const [LineV3Data, setLineV3Data] = useState({ labels: [], data: [] });
+  // 도넛 데이터
+  const [doughnutData, setDoughnutData] = useState({ labels: [], data: [] });
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:5001/api/visit')
+    .then(res => {
+      if (!res.ok) throw new Error('네트워크 오류');
+      return res.json();
+    })
+    .then((data) => {
+      setTotalVisitors(data.totalVisitors);
+      setLoading(false);
+    })
+    .catch(err => {
+      setError('visit data error' + err.message);
+      setLoading(false);
+    });
+
+    fetch('http://localhost:5001/api/dashboard')
+    .then(res => {
+      if (!res.ok) throw new Error('네트워크 오류');
+      return res.json();
+    })
+    .then((CardData) => {
+      setCardData(CardData);
+      setLoading(false);
+    })
+    .catch(err => {
+      setError('card data error' + err.message);
+      setLoading(false);
+    });
+
+    fetch('http://localhost:5001/api/linev2chart')
+    .then(res => res.json())
+    .then(res => {
+      setLineV2Data({ labels: res.labels, data: res.data });
+    })
+    .catch(err => console.error('LineChartV2 API error:', err));
+
+    fetch('http://localhost:5001/api/linev3chart')
+    .then(res => res.json())
+    .then((res) => {
+      const chartData = res.chartData;
+
+      const labels = chartData.map(item => item.date);
+      const data = chartData.map(item => item.value);
+
+      console.log(labels);
+      setLineV3Data({ labels, data });
+      setLoading(false);
+    })
+    .catch(err => console.error('Line chart API error:', err));
+
+    fetch('http://localhost:5001/api/doughnut')
+    .then(res => res.json())
+    .then(res => {
+      setDoughnutData(res);
+    })
+    .catch(err => console.error('Doughnut API error:', err));
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <div>
       <div className="container mt-3">
         <div className="row">
           <div className="col-lg-3 col-sm-6">
-            <MainCard title={'당일 방문자 수'} value={'13000'} unit={'명'} icon={'fa-users'}></MainCard>
+            <MainCard title={'당일 방문자 수'} value={totalVisitors} unit={'명'} icon={'fa-users'}></MainCard>
           </div>
           <div className="col-lg-3 col-sm-6">
-            <MainCard title={'현재 접속자 수'} value={'2000'} unit={'명'} icon={'fa-signal'}></MainCard>
+            <MainCard title={'현재 접속자 수'} value={CardData.currentUsers} unit={'명'} icon={'fa-signal'}></MainCard>
           </div>
           <div className="col-lg-3 col-sm-6">
-            <MainCard title={'신규 가입자'} value={'50'} unit={'명'} icon={'fa-user-plus'}></MainCard>
+            <MainCard title={'신규 가입자'} value={CardData.newSignups} unit={'명'} icon={'fa-user-plus'}></MainCard>
           </div>
           <div className="col-lg-3 col-sm-6">
-            <MainCard title={'평균 체류 시간'} value={'20'} unit={'분'} icon={'fa-clock'}></MainCard>
+            <MainCard title={'평균 체류 시간'} value={CardData.avgStayTime} unit={'분'} icon={'fa-clock'}></MainCard>
           </div>
         </div>
 
@@ -43,14 +118,14 @@ export default function DashboardMain() {
           {/* <Line className='col-lg-9 col-sm-12'></Line> */}
           <div className="linechart-box col-lg-8">
             <LineChartV2
-              labels={["월", "화", "수", "목", "금", "토", "일"]}
-              data={[120, 190, 300, 250, 220, 180, 240]}>
+              labels={lineV2Data.labels}
+              data={lineV2Data.data}>
             </LineChartV2>
           </div>
           <div className="line-box col-lg-4 col-sm-12">
             <DoughnutChart
-              labels={["검색엔진", "SNS", "직접 방문", "기타"]}
-              data={[45, 25, 20, 10]}>
+              labels={doughnutData.labels}
+              data={doughnutData.data}>
             </DoughnutChart>
           </div>
         </div>
@@ -58,8 +133,8 @@ export default function DashboardMain() {
         <div className="row">
           <div className="linechart-box">
             <LineChartV3
-              labels={["월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일"]}
-              data={[3.2, 4.1, 2.8, 3.5, 4.0, 3.0, 3.7, 3.2, 4.1, 2.8, 3.5, 4.0, 3.0, 3.7, 3.2, 4.1, 2.8, 3.5, 4.0, 3.0, 3.7, 3.2, 4.1, 2.8, 3.5, 4.0, 3.0, 3.7]}
+              labels={LineV3Data.labels}
+              data={LineV3Data.data}
             >
             </LineChartV3>
           </div>
