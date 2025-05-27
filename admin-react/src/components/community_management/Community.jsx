@@ -53,19 +53,23 @@ const Community = () => {
             {currentData.map((customer, i) => (
               <tr key={i}>
                 <td><input type="checkbox" /></td>
-                <td className="name-cell">
-                  <img
-                    src={`https://i.pravatar.cc/40?img=${i + 1}`}
-                    alt={customer.name}
-                  />
-                  {customer.name}
+                <td>
+                  <div className="name-cell">
+                    <img
+                      src={`https://i.pravatar.cc/40?img=${i + 1}`}
+                      alt={customer.name}
+                    />
+                    <span>{customer.name}</span>
+                  </div>
                 </td>
                 <td>{customer.id}</td>
                 <td>{customer.date}</td>
-                <td className="action-icons">
-                <button><FaEye/></button>
-                <button><FaEdit/></button>
-                <button><FaTrash/></button>
+                <td>
+                  <div className="action-icons">
+                    <button><FaEye /></button>
+                    <button><FaEdit /></button>
+                    <button><FaTrash /></button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -45,28 +45,37 @@
 
 .community-table th,
 .community-table td {
-  padding: 14px 16px;
+  padding: 10px 12px;
   text-align: left;
   border-bottom: 1px solid #eee;
+  vertical-align: middle;
 }
 
 .name-cell {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .name-cell img {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.action-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  min-height: 40px; /* ✅ border 깨짐 방지 */
 }
 
 .action-icons button {
   background: none;
   border: none;
   font-size: 16px;
-  margin-right: 8px;
   cursor: pointer;
   transition: transform 0.15s ease;
 }
@@ -91,6 +100,12 @@
   font-size: 14px;
   cursor: pointer;
   transition: background 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .pagination button:hover {
