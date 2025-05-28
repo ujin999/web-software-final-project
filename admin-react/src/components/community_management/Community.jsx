@@ -32,7 +32,7 @@ const Community = () => {
     <div className="community-container">
       <div className="community-card">
         <div className="community-header">
-          <h2>All User</h2>
+          <div></div> {/* 제목 제거하고 레이아웃 유지용 빈 div */}
           <select>
             <option>This Month</option>
             <option>Last Month</option>

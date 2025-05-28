@@ -26,7 +26,7 @@ const QnA = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(qnaItems.length / itemsPerPage);
 
-  const sortedQnaItems = [...qnaItems].sort((a, b) => a.id - b.id); // ✅ 오름차순 정렬
+  const sortedQnaItems = [...qnaItems].sort((a, b) => a.id - b.id);
 
   const currentItems = sortedQnaItems.slice(
     (currentPage - 1) * itemsPerPage,
@@ -35,7 +35,8 @@ const QnA = () => {
 
   return (
     <div className="qna-wrapper">
-      <h3 className="page-title">Q&A</h3>
+      <h2 className="write-title">QnA</h2>
+
       <table className="qna-table">
         <thead>
           <tr>

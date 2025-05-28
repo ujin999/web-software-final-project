@@ -29,7 +29,7 @@ const Article = () => {
   return (
     <div className="article-wrapper">
       <div className="article-header">
-        <h2>All Articles</h2>
+        <h2 className="write-title">게시글 목록</h2>
         <select className="filter-dropdown">
           <option>This Month</option>
           <option>Last Month</option>
@@ -56,16 +56,15 @@ const Article = () => {
               <td>{(item.views / 1000).toFixed(1)}k</td>
               <td>{item.date}</td>
               <td className="action-icons">
-                <button><FaEye/></button>
-                <button><FaEdit/></button>
-                <button><FaTrash/></button>
+                <button className="icon view"><FaEye /></button>
+                <button className="icon edit"><FaEdit /></button>
+                <button className="icon delete"><FaTrash /></button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {/* 페이지네이션 */}
       <div className="pagination">
         <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
           ←

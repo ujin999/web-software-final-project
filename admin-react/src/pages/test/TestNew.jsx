@@ -6,6 +6,9 @@ import NoticeList from "components/Notice/NoticeList";
 import NoticeTable from "components/Notice/NoticTable";
 import QnA from "components/QnA/QnA";
 import WritePost from "components/WritePost/WritePost";
+import UserVisitChart from "components/Chart/UserVisitChart";
+import TodoCard from "components/DashBoard/TodoCard";
+import RecentPostsCard from "components/DashBoard/RecentPostsCard";
 
 export default function TestNew(){
   return(
@@ -19,6 +22,11 @@ export default function TestNew(){
         <QnA></QnA>
 
         <WritePost></WritePost>
+
+        <UserVisitChart></UserVisitChart>
+        <div>
+        <TodoCard></TodoCard> <RecentPostsCard></RecentPostsCard>
+        </div>
       </>
   )
 }
