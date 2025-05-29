@@ -74,7 +74,7 @@ const QnA = () => {
           ←
         </button>
         {Array.from({ length: totalPages }).map((_, i) => (
-          <button
+          <button 
             key={i}
             className={currentPage === i + 1 ? 'page-active' : ''}
             onClick={() => setCurrentPage(i + 1)}
