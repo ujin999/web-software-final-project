@@ -15,6 +15,10 @@ export default function DashboardMain() {
   const [CardData, setCardData] = useState(null);
   // 방문 유저 데이터
   const [totalVisitors, setTotalVisitors] = useState(null);
+  // warnings 경고 데이터
+  const [warnings, setWarnings] = useState([]);
+  // 공지사항 리스트
+  const [noticeTableList, setNoticeTalbeList] = useState([]);
   // 라인v2 차트 데이터
   const [lineV2Data, setLineV2Data] = useState({ labels: [], data: [] });
   // 라인v3 차트 데이터
@@ -53,6 +57,28 @@ export default function DashboardMain() {
       setError('card data error' + err.message);
       setLoading(false);
     });
+
+    fetch('http://localhost:5001/api/warnings')
+      .then(res => {
+        if (!res.ok) throw new Error('네트워크 오류');
+        return res.json();
+      })
+      .then(data => {
+        const topFive = data.slice(0, 5)
+        setWarnings(topFive);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError('warning data error: ' + err.message);
+        setLoading(false);
+      });
+
+    fetch('http://localhost:5001/api/notices')
+        .then(res => res.json())
+        .then(data => {
+          const topFive = data.slice(0, 5);
+          setNoticeTalbeList(topFive);
+        });
 
     fetch('http://localhost:5001/api/linev2chart')
     .then(res => res.json())
@@ -106,11 +132,11 @@ export default function DashboardMain() {
 
         <div className="row">
           <div className="alert-box col-lg-6 col-sm-12">
-            <Alert></Alert>
+            <Alert warnings={warnings}></Alert>
           </div>
 
           <div className='notice-list-box gap-5 col-lg-6 col-sm-12'>
-            <NoticeList></NoticeList>
+            <NoticeList notices={noticeTableList}></NoticeList>
           </div>
         </div>
 
@@ -139,9 +165,6 @@ export default function DashboardMain() {
             </LineChartV3>
           </div>
         </div>
-        
-        
-
         
       </div>
     </div>
