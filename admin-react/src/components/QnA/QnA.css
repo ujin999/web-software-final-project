@@ -9,90 +9,93 @@
     border: 1px solid #eee;
   }
   
-  .page-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
-  .qna-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  
-  .qna-table th,
-  .qna-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .qna-table th {
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .qna-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .qna-search {
-    display: flex;
-    align-items: center;
-  }
-  
-  .qna-search input {
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    font-size: 14px;
-  }
-  
-  .qna-search button {
-    background: none;
-    border: none;
-    margin-left: -32px;
-    color: #666;
-    cursor: pointer;
-  }
-  
-  .qna-write {
-    padding: 6px 14px;
-    background: #222;
-    color: white;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-  }
-  
-  .pagination {
-    margin-top: 24px;
-    text-align: center;
-  }
-  
-  .pagination button {
-    background: none;
-    border: none;
-    font-size: 16px;
-    margin: 0 6px;
-    padding: 6px 12px;
-    cursor: pointer;
-    color: #333;
-  }
-  
-  .pagination button.page-active {
-    background-color: #add8e6;
-    color: white;
-    border-radius: 50%;
-    font-weight: bold;
-  }
-  
-  .pagination button:disabled {
-    color: #ccc;
-    cursor: default;
-  }
-  
+.page-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.qna-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.qna-table th,
+.qna-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.qna-table th {
+  font-weight: bold;
+  color: #333;
+}
+
+.qna-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.qna-search {
+  display: flex;
+  align-items: center;
+}
+
+.qna-search input {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.qna-search button {
+  background: none;
+  border: none;
+  margin-left: -32px;
+  color: #666;
+  cursor: pointer;
+}
+
+.qna-write {
+  padding: 6px 14px;
+  background: #3558a9;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.qna-write:hover {
+  background: #3f68c7 !important;
+}
+
+.pagination {
+  text-align: center;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin: 0 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #333;
+}
+
+.pagination button.page-active {
+  background-color: #add8e6;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  color: #ccc;
+  cursor: default;
+}
