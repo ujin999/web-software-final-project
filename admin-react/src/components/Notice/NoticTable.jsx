@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './NoticeTable.css';
+import { Link } from 'react-router-dom';
 
 const NoticeTable = ({ noticeList }) => {
   const allNotices = noticeList || [];
@@ -58,6 +59,14 @@ const NoticeTable = ({ noticeList }) => {
           ))}
         </tbody>
       </table>
+
+      <div className="notice-table-footer">
+        <div className="notice-table-search">
+          {/* <input type="text" placeholder="Search" />
+          <button><FaSearch /></button> */}
+        </div>
+        <Link to="/notice/write" className="notice-table-write">글쓰기</Link>
+      </div>
 
       <div className="pagination">
         <button

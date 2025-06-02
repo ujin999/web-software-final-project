@@ -1,91 +1,101 @@
 .notice-container {
-    max-width: 1300px;
-    margin:auto;
-    padding: 24px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', sans-serif;
-  }
+  max-width: 1300px;
+  margin: auto;
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
 
-  .page-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 12px;
-  }
-  
-  .page-subtitle {
-    font-size: 14px;
-    color: #666;
-    margin-left: 8px;
-    font-weight: normal;
-  }
-  
-  .notice-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 8px;
-    font-size: 14px;
-  }
-  
-  .notice-table th,
-  .notice-table td {
-    border-bottom: 1px solid #eee;
-    padding: 12px;
-    text-align: center;
-  }
-  
-  .notice-table thead {
-    background: #f9f9f9;
-  }
-  
-  .badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 10px;
-    margin-left: 6px;
-  }
-  
-  .badge-green {
-    background-color: #2ecc71;
-    color: white;
-  }
-  
-  .badge-blue {
-    background-color: #3498db;
-    color: white;
-  }
-  
-  .pagination {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  .pagination button {
-    background: none;
-    border: none;
-    font-size: 16px;
-    margin: 0 6px;
-    padding: 6px 10px;
-    cursor: pointer;
-    color: #333;
-  }
+.page-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
 
-  .qna-write {
-    background-color:#434343 !important;
-  }
-  
-  .pagination button.page-active {
-    background-color: #434343 !important;
-    color: white;
-    border-radius: 50%;
-    font-weight: bold;
-  }
-  
-  .pagination button:disabled {
-    color: #ccc;
-    cursor: default;
-  }
-  
+.page-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.notice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.notice-table th,
+.notice-table td {
+  border-bottom: 1px solid #eee;
+  padding: 12px;
+  text-align: center;
+}
+
+.notice-table thead {
+  background: #f9f9f9;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+
+.badge-green {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.badge-blue {
+  background-color: #3498db;
+  color: white;
+}
+
+.pagination {
+  margin-top: 0px;
+  text-align: center;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin: 0 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #333;
+}
+.notice-table-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: right;
+}
+
+.notice-table-write {
+  padding: 6px 14px;
+  background: #3558a9;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pagination button.page-active {
+  background-color: #3558a9 !important;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  color: #ccc;
+  cursor: default;
+}
