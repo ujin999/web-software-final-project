@@ -58,3 +58,7 @@
 .rbc-off-range {
   color: #d0d5dc73 !important;
 }
+
+.rbc-selected {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
