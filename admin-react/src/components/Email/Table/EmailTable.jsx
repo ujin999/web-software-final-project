@@ -8,7 +8,7 @@ export default function EmailTable({ emails }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [emailData, setEmailData] = useState(emails);
 
-  const itemsPerPage = 11;
+  const itemsPerPage = 20;
   const totalPages = Math.ceil(emailData.length / itemsPerPage);
 
   const currentItems = emailData.slice(
@@ -49,21 +49,22 @@ export default function EmailTable({ emails }) {
       </div>
 
       <div className="list-group shadow-sm mb-3">
-        {currentItems.map((email, index) => (
+        {currentItems.map((email, _) => (
           <div
-            key={index}
+            key={email.id}
             className="list-group-item d-flex align-items-center justify-content-between"
           >
             <div className="d-flex align-items-center" style={{ gap: '1rem' }}>
               <input type="checkbox" />
               <div>
                 <div className="fw-semibold">{email.subject}</div>
-                <div className="text-muted small" style={{ maxWidth: '400px' }}>
-                  <p className="email-list-preview mb-0">{email.preview}</p>
-                </div>
               </div>
+              <div className="text-muted small" style={{ maxWidth: '400px' }}>
+                  <p className="email-list-preview mb-0">{email.preview}</p>
+              </div>
+              <div className="text-muted small">{email.email}</div>
             </div>
-            <div className="text-muted small">{email.time}</div>
+            <div className="text-muted small">{email.date}</div>
           </div>
         ))}
       </div>
