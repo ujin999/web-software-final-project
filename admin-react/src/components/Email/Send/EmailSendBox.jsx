@@ -58,13 +58,13 @@ export default function EmailSendBox() {
       <div className="compose-content mt-5">
         <form>
           <div className="form-group mb-3">
-            <input type="text" className="form-control bg-transparent" placeholder="To" />
+            <input type="text" className="custom-email-from form-control bg-transparent" placeholder="To" />
           </div>
           <div className="form-group mb-3">
-            <input type="text" className="form-control bg-transparent" placeholder="Subject" />
+            <input type="text" className="custom-email-from form-control bg-transparent" placeholder="Subject" />
           </div>
           <div className="form-group mb-3">
-            <textarea className="form-control bg-light" rows="15" placeholder="Enter text ..."></textarea>
+            <textarea className="custom-email-from form-control bg-light" rows="15" placeholder="Enter text ..."></textarea>
           </div>
         </form>
 
@@ -73,7 +73,7 @@ export default function EmailSendBox() {
         </h5>
         <form className="dropzone">
           <div className="form-group">
-            <input className="form-control" name="file" type="file" multiple />
+            <input className="custom-email-from form-control" name="file" type="file" multiple />
           </div>
         </form>
       </div>
