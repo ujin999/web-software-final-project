@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { DataTable } from 'simple-datatables';
 
 import './Basic-Table.css';
@@ -7,8 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'simple-datatables/dist/style.css';
 
-export default function BasicTable() {
+export default function BasicTable({options, allData}) {
   const tableRef = useRef();
+  const [selectedOption, setSelectedOption] = useState(options[0]?.value || '');
+  const [columns, setColumns] = useState(allData[selectedOption]?.columns || []);
+  const [data, setData] = useState(allData[selectedOption]?.data || []);
 
   useEffect(() => {
     if (tableRef.current) {
@@ -20,7 +23,16 @@ export default function BasicTable() {
         dataTable.destroy();
       };
     }
-  }, []);
+  }, [selectedOption]);
+
+  const handleOptionChange = (e) => {
+    const value = e.target.value;
+    setSelectedOption(value);
+    setColumns(allData[value]?.columns || []);
+    setData(allData[value]?.data || []);
+  };
+
+  if (allData==null) return <p>데이터가 없습니다.</p>;
 
   return (
     <div className="card mb-4">
@@ -29,43 +41,32 @@ export default function BasicTable() {
           <i className="fas fa-table me-2"></i>
           <span>데이터 테이블</span>
         </div>
-        <select className="custom-select-dropdown">
-          <option value="notices">📢&nbsp; 공지사항</option>
-          <option value="errors">❗&nbsp;  오류 로그</option>
-          <option value="users">👤&nbsp;  사용자 목록</option>
+        <select
+          className="custom-select-dropdown"
+          value={selectedOption}
+          onChange={handleOptionChange}
+        >
+          {options.map((opt, index) => (
+            <option key={index} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
         </select>
       </div>
-      <div className="card-body">
+      <div className="card-body" key={selectedOption}>
         <table ref={tableRef} className="table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              {columns.map((col, i) => (
+                <th key={i}>{col}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            {[
-              ['김지훈', '시스템 아키텍트', '서울', 41, '2024/03/15', '₩320,800'],
-              ['박서연', '회계사', '부산', 36, '2023/11/02', '₩170,750'],
-              ['이준호', '초급 기술 문서 작성자', '대전', 29, '2023/07/19', '₩86,000'],
-              ['최민재', '시니어 자바스크립트 개발자', '서울', 32, '2022/12/08', '₩433,060'],
-              ['정하늘', '회계사', '부산', 34, '2022/08/21', '₩162,700'],
-              ['오예린', '통합 전문가', '대구', 31, '2022/01/30', '₩372,000'],
-              ['홍석진', '영업 보조', '대전', 28, '2021/09/14', '₩137,500'],
-              ['윤지우', '통합 전문가', '부산', 35, '2021/03/03', '₩327,900'],
-              ['강수민', '자바스크립트 개발자', '대전', 33, '2020/11/25', '₩205,500'],
-              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
-              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
-              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
-              ['한유진', '소프트웨어 엔지니어', '서울', 30, '2020/05/10', '₩103,600'],
-            ].map((row, index) => (
-              <tr key={index}>
-                {row.map((cell, i) => (
-                  <td key={i}>{cell}</td>
+            {data.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {row.map((cell, colIndex) => (
+                  <td key={colIndex}>{cell}</td>
                 ))}
               </tr>
             ))}
