@@ -16,6 +16,7 @@ import EmailSendBox from './Email/Send/EmailSendBox';
 import DashboardMain from './dashboard/DashboardMain';
 import QnA from "components/QnA/QnA";
 import NoticeTable from './Notice/NoticTable';
+import Alert from "components/Chart/Alert";
 
 // chart-js import
 import {
@@ -31,6 +32,8 @@ import {
   Legend,
 } from 'chart.js';
 import EmailTable from './Email/Table/EmailTable';
+import WritePost from './WritePost/WritePost';
+import Community from './community_management/Community';
 
 ChartJS.register(
   CategoryScale,
@@ -46,101 +49,25 @@ ChartJS.register(
 
 
 /* 이메일 데이터 */
-const emailData = [
-  {
-    subject: "주간 보고서 제출 안내",
-    preview: "이번 주 보고서는 금요일 오전 10시까지 제출해주시기 바랍니다.",
-    time: "오전 9:32",
-    starred: false,
-  },
-  {
-    subject: "회의 일정 변경 안내",
-    preview: "내부 사정으로 회의 일정이 다음 주 화요일로 변경되었습니다.",
-    time: "오전 8:45",
-    starred: true,
-  },
-  {
-    subject: "신규 가입자 통계 보고",
-    preview: "5월 기준 신규 가입자 수는 총 1,240명입니다. 첨부파일을 확인하세요.",
-    time: "어제",
-    starred: false,
-  },
-  {
-    subject: "서비스 점검 안내",
-    preview: "금요일 자정부터 오전 4시까지 서비스 점검이 예정되어 있습니다.",
-    time: "어제",
-    starred: false,
-  },
-  {
-    subject: "팀 회식 일정 설문",
-    preview: "회식 가능한 날짜에 투표해주세요. 투표는 금요일까지 진행됩니다.",
-    time: "5월 22일",
-    starred: false,
-  },
-  {
-    subject: "주간 보고서 제출 안내",
-    preview: "이번 주 보고서는 금요일 오전 10시까지 제출해주시기 바랍니다.",
-    time: "오전 9:32",
-    starred: false,
-  },
-  {
-    subject: "회의 일정 변경 안내",
-    preview: "내부 사정으로 회의 일정이 다음 주 화요일로 변경되었습니다.",
-    time: "오전 8:45",
-    starred: true,
-  },
-  {
-    subject: "신규 가입자 통계 보고",
-    preview: "5월 기준 신규 가입자 수는 총 1,240명입니다. 첨부파일을 확인하세요.",
-    time: "어제",
-    starred: false,
-  },
-  {
-    subject: "서비스 점검 안내",
-    preview: "금요일 자정부터 오전 4시까지 서비스 점검이 예정되어 있습니다.",
-    time: "어제",
-    starred: false,
-  },
-  {
-    subject: "팀 회식 일정 설문",
-    preview: "회식 가능한 날짜에 투표해주세요. 투표는 금요일까지 진행됩니다.",
-    time: "5월 22일",
-    starred: false,
-  },
-  {
-    subject: "주간 보고서 제출 안내",
-    preview: "이번 주 보고서는 금요일 오전 10시까지 제출해주시기 바랍니다.",
-    time: "오전 9:32",
-    starred: false,
-  },
-  {
-    subject: "회의 일정 변경 안내",
-    preview: "내부 사정으로 회의 일정이 다음 주 화요일로 변경되었습니다.",
-    time: "오전 8:45",
-    starred: true,
-  },
-  {
-    subject: "신규 가입자 통계 보고",
-    preview: "5월 기준 신규 가입자 수는 총 1,240명입니다. 첨부파일을 확인하세요.",
-    time: "어제",
-    starred: false,
-  },
-  {
-    subject: "서비스 점검 안내",
-    preview: "금요일 자정부터 오전 4시까지 서비스 점검이 예정되어 있습니다.",
-    time: "어제",
-    starred: false,
-  },
-  {
-    subject: "팀 회식 일정 설문",
-    preview: "회식 가능한 날짜에 투표해주세요. 투표는 금요일까지 진행됩니다.",
-    time: "5월 22일",
-    starred: false,
-  },
-];
 
 export default function Router() {
+  // warnings 경고 데이터
+  const [warnings, setWarnings] = useState([]);
+  // 공지사항 리스트
   const [noticeTableList, setNoticeTalbeList] = useState([]);
+  // allData 리스트
+  const [allData, setAllData] = useState({});
+  // qna 리스트
+  const [qnaItems, setQnaItems] = useState([]);
+  // user 정보 리스트
+  const [users, setUsers] = useState([]);
+  // community 정보 리스트
+  const [posts, setPosts] = useState([]);
+  // email 정보 리스트
+  const [emails, setEmails] = useState([]);
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch('http://localhost:5001/api/notices')
@@ -148,7 +75,75 @@ export default function Router() {
       .then(data => {
         setNoticeTalbeList(data);
       });
+
+    fetch('http://localhost:5001/api/warnings')
+    .then(res => {
+      if (!res.ok) throw new Error('네트워크 오류');
+      return res.json();
+    })
+    .then(data => {
+      setWarnings(data);
+      setLoading(false);
+    })
+    .catch(err => {
+      setError('warning data error: ' + err.message);
+      setLoading(false);
+    });
+
+    fetch('http://localhost:5001/api/data')
+    .then(res => {
+      if (!res.ok) throw new Error('네트워크 오류');
+      return res.json();
+    })
+    .then(data => {
+      setAllData(data);
+      setLoading(false);
+    })
+    .catch(err => {
+      setError('warning data error: ' + err.message);
+      setLoading(false);
+    });
+
+    fetch('http://localhost:5001/api/qna')
+    .then(res => res.json())
+    .then(result => setQnaItems(result.data))
+    .catch(err => console.error(err));
+
+    fetch('http://localhost:5001/api/users')
+      .then(res => res.json())
+      .then(data => {
+        setUsers(data);
+      });
+
+    fetch('http://localhost:5001/api/community')
+    .then(res => res.json())
+    .then(data => {
+      setPosts(data);
+    });
+
+    fetch('http://localhost:5001/api/emails')
+    .then(res => res.json())
+    .then(response => {
+      setEmails(response);
+      console.log(response[0]);
+    });
   }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const tableOptions = [
+    { value: 'notices', label: '📢 공지사항' },
+    { value: 'errors', label: '❗ 오류 로그' },
+    { value: 'users', label: '👤 사용자 목록' },
+    { value: 'community', label: '💬 커뮤니티 글'},
+    { value: 'visitors', label: '📊 방문자 통계'},
+
+  ];
+
+  const userOptions = [
+    { value: 'users', label: '👤 사용자 목록' },
+  ]
 
   return (
     <>
@@ -162,15 +157,18 @@ export default function Router() {
             {/* 대시보드 */}
             <Route path="/dashboard/main" element={<DashboardMain></DashboardMain>}></Route>
 
+            <Route path="/dashboard/table" element={<BasicTable options={tableOptions} allData={allData}></BasicTable>}></Route>
+
             {/* 사용자 데이터 */}
-            <Route path="/user/check" element={<BasicTable />}></Route>
+            <Route path="/user/check" element={<BasicTable options={userOptions} allData={allData} />}></Route>
+            <Route path="/user/management" element={<Community users={users} />}></Route>
 
 
             {/* 커뮤니티 내용 조회 */}
-            <Route path="/community/check" element={<Article />}></Route>
+            <Route path="/community" element={<Article posts={posts} />}></Route>
 
             {/* 이메일 */}
-            <Route path="email/list" element={<EmailTable emails={emailData}></EmailTable>}></Route>
+            <Route path="email/list" element={<EmailTable emails={emails}></EmailTable>}></Route>
             
             <Route path="/email/send" element={<EmailSendBox />}></Route>
 
@@ -179,17 +177,21 @@ export default function Router() {
             <Route path="/calendar" element={<Calendar />}></Route>
 
             {/* Q&A */}
-            <Route path="/qna" element={<QnA></QnA>}></Route>
+            <Route path="/qna" element={<QnA qnaItems={qnaItems}></QnA>}></Route>
+            <Route path="/qna/write" element={<WritePost></WritePost>}></Route>
 
             {/* 공지사항 */}
             <Route path="/notice" element={<NoticeTable noticeList={ noticeTableList }></NoticeTable>}></Route>
-            
+            <Route path="/notice/write" element={<WritePost></WritePost>}></Route>
 
-            <Route path="/" element={<Test />} />{' '}
+            {/* 에러 로그 */}
+            <Route path="/errors" element={<Alert warnings={warnings}></Alert>}></Route>
+            
+            {/* <Route path="/" element={<Test />} />{' '} */}
             {/** 루트(/) 경로를 라우터로 잡아줌 */}
             <Route path="/test/new" element={<TestNew />} />
             {/** 설정된 경로를 제외한 나머지 경로로 접속한 경우 루트 페이지로 이동 */}
-            <Route path="*" element={<Navigate replace to="/" />} />
+            <Route path="*" element={<Navigate replace to="/dashboard/main" />} />
           </Routes>
           </div>
         </div>
