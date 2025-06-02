@@ -11,7 +11,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+}
+
+.write-title {
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #333;
 }
 
 .filter-dropdown {
@@ -66,17 +71,6 @@
   transform: scale(1.2);
 }
 
-.icon.view {
-  color: #4e73df;
-}
-
-.icon.edit {
-  color: #1cc88a;
-}
-
-.icon.delete {
-  color: #e74a3b;
-}
 
 .pagination {
   display: flex;

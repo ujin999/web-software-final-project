@@ -1,0 +1,56 @@
+.chart-container {
+    background-color: #f9fbfc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  .chart-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .chart-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .option-btn {
+    padding: 6px 14px;
+    border: none;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .option-btn.active {
+    background-color: #1890ff;
+    color: white;
+  }
+  
+  .dropdown {
+    margin-left: auto;
+    padding: 6px;
+    border-radius: 5px;
+  }
+  
+  .total-count {
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    text-align: right;
+  }
+  
+  .total-count .number {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+  }
+  
+  .total-count .label {
+    font-size: 12px;
+    color: #666;
+  }
+  

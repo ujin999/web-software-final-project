@@ -49,9 +49,9 @@ const Article = ({posts}) => {
               <td>{item.views}</td>
               <td>{item.date}</td>
               <td className="action-icons">
-                <button><FaEye/></button>
-                <button><FaEdit/></button>
-                <button><FaTrash/></button>
+                <button className="icon view"><FaEye /></button>
+                <button className="icon edit"><FaEdit /></button>
+                <button className="icon delete"><FaTrash /></button>
               </td>
             </tr>
           ))}

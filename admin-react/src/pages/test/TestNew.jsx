@@ -5,6 +5,12 @@ import Community from "components/community_management/Community"
 import NoticeList from "components/Notice/NoticeList";
 import NoticeTable from "components/Notice/NoticTable";
 import QnA from "components/QnA/QnA";
+import WritePost from "components/WritePost/WritePost";
+import UserVisitChart from "components/Chart/UserVisitChart";
+import TodoCard from "components/DashBoard/TodoCard";
+import RecentPostsCard from "components/DashBoard/RecentPostsCard";
+import ServerStatusCard from "components/DashBoard/ServerStatusCard";
+import ApiResponseCard from "components/DashBoard/ApiResponseCard";
 
 export default function TestNew(){
   return(
@@ -16,7 +22,15 @@ export default function TestNew(){
         <NoticeTable></NoticeTable>
 
         <QnA></QnA>
+
+        <WritePost></WritePost>
+
+        <UserVisitChart></UserVisitChart>
+        
+        <TodoCard></TodoCard> <RecentPostsCard></RecentPostsCard>
+        <ApiResponseCard></ApiResponseCard>
+        <ServerStatusCard></ServerStatusCard>
+      
       </>
   )
 }
-

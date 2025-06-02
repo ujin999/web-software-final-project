@@ -1,0 +1,50 @@
+.status-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 220px;
+  }
+  
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .icon-box {
+    background-color: #e8f0fe;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #2563eb;
+  }
+  
+  .card-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #1f2937;
+  }
+  
+  .card-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #374151;
+  }
+  
+  .card-status {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .card-status.positive {
+    color: #22c55e;
+  }
+  
+  .card-status.negative {
+    color: #f97316;
+  }
+  

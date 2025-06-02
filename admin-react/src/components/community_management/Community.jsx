@@ -21,7 +21,7 @@ const Community = ({users}) => {
     <div className="community-container">
       <div className="community-card">
         <div className="community-header">
-          <h2>유저</h2>
+          <div></div> {/* 제목 제거하고 레이아웃 유지용 빈 div */}
         </div>
 
         <table className="community-table">

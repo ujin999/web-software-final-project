@@ -1,9 +1,9 @@
-import ManagementCalendar from  'components/Calendar/Calendar'
+import BasicTable from 'components/Table/Basic-Table'
 
 export default function Test(){
   return(
       <>
-        <ManagementCalendar></ManagementCalendar>
+        <BasicTable></BasicTable>
       </>
   )
 }
