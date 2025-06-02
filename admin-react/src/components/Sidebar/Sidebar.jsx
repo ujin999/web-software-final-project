@@ -41,7 +41,7 @@ export default function Sidebar() {
   const goToPage = (query) => {
     navigate(query); // 이동할 경로
   };
-
+  
   return (
     <>
       <div className="sidebar-container">
@@ -77,7 +77,10 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/dashboard/table' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'dashboard-table' ? 'active' : ''}`}
+                onClick={() => { 
+                  toggleMenuAndSetActive('dashboard-table');
+                }}>
                   <span>테이블</span>
                 </Link>
               </li>
@@ -118,7 +121,10 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
+                <Link to='/user/management' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'user-manage' ? 'active' : ''}`}
+                  onClick={() => { 
+                    toggleMenuAndSetActive('user-manage');
+                }}>
                   <span>사용자 관리</span>
                 </Link>
               </li>
@@ -127,10 +133,10 @@ export default function Sidebar() {
 
           {/* 3번 Dashboard */}
           <li className="mb-1">
-            <button className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'community' ? 'active' : ''}`}
-            onClick={() =>{
-              toggleMenu(this, 'community');
-              // toggleMenuAndSetActive('community')
+            <button to='/qna' className={`btn btn-toggle d-inline-flex align-items-center rounded border-0 ${activeMenu === 'community' ? 'active' : ''}`}
+            onClick={() => {
+              goToPage('/community');
+              setActiveMenu('community');
               }}>
               <span className='btn-text'>
               <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faPager} size='sm' />
@@ -143,7 +149,7 @@ export default function Sidebar() {
           </li>
 
           <div className={`submenu ${openMenus.community ? 'openMenus' : ''}`}>
-            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            {/* <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
                 <Link to='/community/check' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'community-management' ? 'active' : ''}`}
                     onClick={() => { 
@@ -157,7 +163,7 @@ export default function Sidebar() {
                   <span>커뮤니티 조회</span>
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           {/* 4번 Dashboard */}
