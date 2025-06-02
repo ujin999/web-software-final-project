@@ -2,17 +2,10 @@ import React, { useState } from 'react';
 import './Article.css';
 import { FaEye, FaEdit, FaTrash } from 'react-icons/fa';
 
-const Article = () => {
-  const initialData = Array.from({ length: 15 }, (_, i) => ({
-    id: i + 1,
-    title: `제목 ${i + 1}`,
-    nickname: `유저 ${i + 1}`,
-    views: Math.floor(Math.random() * 9000) + 1000,
-    date: `11 May, 2025`,
-  }));
+const Article = ({posts}) => {
 
   const itemsPerPage = 9;
-  const totalPages = Math.ceil(initialData.length / itemsPerPage);
+  const totalPages = Math.ceil(posts.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
 
   const handlePageChange = (page) => {
@@ -21,7 +14,7 @@ const Article = () => {
     }
   };
 
-  const currentData = initialData.slice(
+  const currentData = posts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -30,10 +23,10 @@ const Article = () => {
     <div className="article-wrapper">
       <div className="article-header">
         <h2>All Articles</h2>
-        <select className="filter-dropdown">
+        {/* <select className="filter-dropdown">
           <option>This Month</option>
           <option>Last Month</option>
-        </select>
+        </select> */}
       </div>
 
       <table className="article-table">
@@ -53,7 +46,7 @@ const Article = () => {
               <td><input type="checkbox" /></td>
               <td>{item.title}</td>
               <td>{item.nickname}</td>
-              <td>{(item.views / 1000).toFixed(1)}k</td>
+              <td>{item.views}</td>
               <td>{item.date}</td>
               <td className="action-icons">
                 <button><FaEye/></button>
@@ -66,7 +59,7 @@ const Article = () => {
       </table>
 
       {/* 페이지네이션 */}
-      <div className="pagination">
+      <div className="pagination article-custom-pagination">
         <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
           ←
         </button>

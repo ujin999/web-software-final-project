@@ -49,6 +49,10 @@
   gap: 10px;
 }
 
+.action-icons button {
+  color: black;
+}
+
 .icon {
   border: none;
   background: none;
@@ -75,7 +79,6 @@
 }
 
 .pagination {
-  margin-top: 24px;
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -86,8 +89,8 @@
   height: 36px;
   border: none;
   border-radius: 50%;
-  background: none;
-  color: #444;
+  background: #3558a9;
+  color: black;
   font-size: 16px;
   cursor: pointer;
   transition: background 0.2s;
@@ -98,7 +101,7 @@
 }
 
 .pagination button.active {
-  background-color: #ABCDDE;
+  background-color: #3558a9 !important;
   color: white;
   font-weight: bold;
 }
@@ -106,4 +109,8 @@
 .pagination button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+.article-custom-pagination {
+  margin-top: 10px !important;
 }
