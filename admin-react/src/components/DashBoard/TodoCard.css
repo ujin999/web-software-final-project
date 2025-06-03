@@ -3,7 +3,7 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  max-width: 460px;
+  max-width: 100%;
   font-family: sans-serif;
 }
 

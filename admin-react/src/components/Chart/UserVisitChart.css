@@ -1,13 +1,12 @@
 .chart-container {
-    background-color: #f9fbfc;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    padding: 30px;
+    border: solid 1px rgb(222, 226, 230);
     position: relative;
   }
   
   .chart-title {
-    font-size: 18px;
+    font-size: 1.1rem;
     margin-bottom: 10px;
   }
   
@@ -44,7 +43,7 @@
   }
   
   .total-count .number {
-    font-size: 28px;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #222;
   }

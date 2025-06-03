@@ -1,0 +1,308 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-circle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111;
+}
+
+.logo-text {
+  background-color: #2563eb;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.welcome-section {
+  background: linear-gradient(to bottom right, #3b82f6, #60a5fa);
+  color: white;
+  padding: 80px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.welcome-text {
+  max-width: 480px;
+  margin-left: 4rem;
+}
+
+.welcome-text h1 {
+  font-size: 58px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.welcome-text h2 {
+  font-size: 26px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.welcome-text .github-link a:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5) !important
+}
+
+.welcome-section img {
+  width: 840px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transform: translateX(-60px);
+  margin-top: 20px;
+}
+
+.welcome-section img:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+}
+
+.usage-section {
+  padding: 60px 40px;
+  background-color: #ffffff;
+}
+
+.usage-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: left;
+  background-color: #eaecf0;
+  border-radius: 12px;
+  padding: 48px;
+}
+
+.usage-title {
+  margin-bottom: 32px;
+}
+
+.usage-title h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+.usage-title p {
+  color: #6b7280;
+  font-size: 18px;
+}
+
+
+
+.extension-section {
+  background-color: #f1f5f9;
+  padding: 60px 40px;
+}
+
+.extension-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.extension-wrapper h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.extension-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+.extension-subtitle a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.extension-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.extension-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.extension-card:hover {
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+.extension-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #3b82f6;
+}
+
+.extension-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.extension-card p {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* 코드 상태창 같은거 css */
+
+.code-window {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: 'Fira Code', monospace;
+  position: relative;
+  margin-top: 20px;
+}
+
+.code-header {
+  background-color: #3b3b3b;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.code-header .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-header .red {
+  background-color: #ff5f56;
+}
+
+.code-header .yellow {
+  background-color: #ffbd2e;
+}
+
+.code-header .green {
+  background-color: #27c93f;
+}
+
+.copy-text {
+  margin-left: auto;
+  color: #e5e7eb;
+  font-size: 13px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.code-body {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  color: #d1d5db;
+  font-size: 15px;
+  background-color: #1e1e1e;
+  white-space: pre;
+}
+
+.code-body .string {
+  color: #a3e635;
+}
+
+.language-label {
+  text-align: right;
+  padding: 6px 20px 10px;
+  font-size: 13px;
+  color: #9ca3af;
+  background-color: #1e1e1e;
+}
+
+
+
+
+
+/*footer */
+.footer {
+  background-color: #1f2937;
+  padding: 40px 20px;
+  color: #d1d5db;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-icon {
+  font-size: 48px;
+  color: #ffffff;
+  background-color: #2563eb;
+  padding: 10px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.footer-text {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.footer-left,
+.footer-right {
+  color: #9ca3af;
+}
+
+.footer-right a {
+  color: #9ca3af;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

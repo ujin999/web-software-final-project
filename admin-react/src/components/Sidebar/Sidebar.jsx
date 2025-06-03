@@ -284,7 +284,7 @@ export default function Sidebar() {
           </li>
           
           {/* 9번 Dashboard */}
-          {/* <li className="mb-1">
+          <li className="mb-1">
             <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0" onClick={() => toggleMenu(this, 'usage')}>
               <span className='btn-text'>
                 <FontAwesomeIcon className='menu-icon btn-font-icon' icon={faTasks} size='sm' />
@@ -299,12 +299,47 @@ export default function Sidebar() {
           <div className={`submenu ${openMenus.usage ? 'openMenus' : ''}`}>
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <Link className="submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded">
-                  <span>사용방법</span>
+                <Link to='/usage/card' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'usage-card' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('usage-card');
+                  }}>
+                  <span>카드</span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/usage/table' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'usage-table' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('usage-table');
+                  }}>
+                  <span>테이블</span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/usage/graph' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'usage-graph' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('usage-graph');
+                  }}>
+                  <span>그래프</span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/usage/calendar' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'usage-calendar' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('usage-calendar');
+                  }}>
+                  <span>캘린더</span>
+                </Link>
+              </li>
+              <li>
+                <Link to='/usage/form' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'usage-form' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('usage-from');
+                  }}>
+                  <span>Forms</span>
                 </Link>
               </li>
             </ul>
-          </div> */}
+          </div>
 
         </ul>
         </div>

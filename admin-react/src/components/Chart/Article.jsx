@@ -22,7 +22,7 @@ const Article = ({posts}) => {
   return (
     <div className="article-wrapper">
       <div className="article-header">
-        <h2>All Articles</h2>
+        <h4>커뮤니티</h4>
         {/* <select className="filter-dropdown">
           <option>This Month</option>
           <option>Last Month</option>
@@ -32,7 +32,7 @@ const Article = ({posts}) => {
       <table className="article-table">
         <thead>
           <tr>
-            <th><input type="checkbox" /></th>
+            <th></th>
             <th>Title</th>
             <th>Nickname</th>
             <th>Views</th>

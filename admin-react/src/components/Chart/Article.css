@@ -13,6 +13,11 @@
   align-items: center;
 }
 
+.article-header h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 .write-title {
   font-size: 22px;
   margin-bottom: 24px;

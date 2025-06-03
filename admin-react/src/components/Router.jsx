@@ -18,6 +18,14 @@ import QnA from "components/QnA/QnA";
 import NoticeTable from './Notice/NoticTable';
 import Alert from "components/Chart/Alert";
 
+// usage
+import Calendars from './UsageSet/Calendars';
+import Forms from './UsageSet/Forms';
+import Graphs from './UsageSet/Graphs';
+import Tables from './UsageSet/Tables';
+import Cards from './UsageSet/Cards';
+
+
 // chart-js import
 import {
   Chart as ChartJS,
@@ -186,6 +194,13 @@ export default function Router() {
 
             {/* 에러 로그 */}
             <Route path="/errors" element={<Alert warnings={warnings}></Alert>}></Route>
+
+            {/* 사용 방법 */}
+            <Route path="/usage/card" element={<Cards></Cards>}></Route>
+            <Route path="/usage/calendar" element={<Calendars></Calendars>}></Route>
+            <Route path="/usage/graph" element={<Graphs></Graphs>}></Route>
+            <Route path="/usage/form" element={<Forms></Forms>}></Route>
+            <Route path="/usage/table" element={<Tables></Tables>}></Route>
             
             {/* <Route path="/" element={<Test />} />{' '} */}
             {/** 루트(/) 경로를 라우터로 잡아줌 */}

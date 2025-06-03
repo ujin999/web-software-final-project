@@ -9,6 +9,9 @@ import MainCard from 'components/Card/MainCard';
 import DoughnutChart from 'components/Chart/Doughnut';
 import LineChartV2 from 'components/Chart/Line-Chart-v2';
 import LineChartV3 from 'components/Chart/Line-Chart-v3';
+import UserVisitChart from 'components/Chart/UserVisitChart';
+import ApiResponseCard from './ApiResponseCard';
+import ServerStatusCard from './ServerStatusCard';
 
 export default function DashboardMain() {
   // 카드 데이터
@@ -131,6 +134,18 @@ export default function DashboardMain() {
         </div>
 
         <div className="row">
+          <div className="col-lg-4 col-sm-12">
+              <ApiResponseCard></ApiResponseCard>
+          </div>
+          <div className="col-lg-4 col-sm-12">
+              <ApiResponseCard></ApiResponseCard>
+          </div>
+          <div className="col-lg-4 col-sm-12">
+              <ApiResponseCard></ApiResponseCard>
+          </div>
+        </div>
+
+        <div className="row">
           <div className="alert-box col-lg-6 col-sm-12">
             <Alert warnings={warnings}></Alert>
           </div>
@@ -153,6 +168,12 @@ export default function DashboardMain() {
               labels={doughnutData.labels}
               data={doughnutData.data}>
             </DoughnutChart>
+          </div>
+        </div>
+
+        <div className='row'>
+          <div className="uservisit-box">
+            <UserVisitChart></UserVisitChart>
           </div>
         </div>
 

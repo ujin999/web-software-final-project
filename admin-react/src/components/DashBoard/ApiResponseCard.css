@@ -1,0 +1,28 @@
+.status-card {
+  border-radius: 0px;
+  border: solid 1px rgb(222, 226, 230);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.card-title {
+  margin: 0px;
+}
+
+.icon-box {
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+}
+
+.icon-box svg {
+  margin: auto;
+}
+
+.card-status {
+  margin-left: 8px;
+}
