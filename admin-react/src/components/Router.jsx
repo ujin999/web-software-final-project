@@ -15,6 +15,7 @@ import BasicTable from './Table/Basic-Table';
 import EmailSendBox from './Email/Send/EmailSendBox';
 import DashboardMain from './dashboard/DashboardMain';
 import QnA from "components/QnA/QnA";
+import QnADetail from './QnA/QnADetail';
 import NoticeTable from './Notice/NoticTable';
 import Alert from "components/Chart/Alert";
 
@@ -42,6 +43,7 @@ import {
 import EmailTable from './Email/Table/EmailTable';
 import WritePost from './WritePost/WritePost';
 import Community from './community_management/Community';
+
 
 ChartJS.register(
   CategoryScale,
@@ -187,6 +189,7 @@ export default function Router() {
             {/* Q&A */}
             <Route path="/qna" element={<QnA qnaItems={qnaItems}></QnA>}></Route>
             <Route path="/qna/write" element={<WritePost></WritePost>}></Route>
+            <Route path="/qna/detail/:id" element={<QnADetail />} />
 
             {/* 공지사항 */}
             <Route path="/notice" element={<NoticeTable noticeList={ noticeTableList }></NoticeTable>}></Route>

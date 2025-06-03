@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import { CgClose } from "react-icons/cg";
@@ -7,6 +7,12 @@ import { CgClose } from "react-icons/cg";
 import './EmailSendBox.css'
 
 export default function EmailSendBox() {
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate('/email/list');
+  };
+
   return (
     <div>
     <div className='email-box'>
@@ -79,11 +85,11 @@ export default function EmailSendBox() {
       </div>
 
       <div className="button-group d-flex justify-content-end mt-3">
-        <button className="button-box btn btn-primary me-2 d-flex justify-content-center align-items-center" type="button">
+        <button onClick={goBack} className="button-box btn btn-primary me-2 d-flex justify-content-center align-items-center" type="button">
           <i className="fa fa-paper-plane me-2 email-plane-icon"></i>
           <span>Send</span>
         </button>
-        <button className="button-box btn btn-dark d-flex justify-content-center align-items-center" type="button">
+        <button onClick={goBack} className="button-box btn btn-dark d-flex justify-content-center align-items-center" type="button">
           <CgClose className='ioclose-icon'></CgClose>
           <span>Discard</span>
         </button>

@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './QnA.css';
 import { Link } from 'react-router-dom';
 
-const itemsPerPage = 10;
+const itemsPerPage = 14;
 
 const QnA = ({qnaItems}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(qnaItems.length / itemsPerPage);
 
-  const sortedQnaItems = [...qnaItems].sort((a, b) => a.id - b.id);
+  // const sortedQnaItems = [...qnaItems].sort((a, b) => a.id - b.id);
 
-  const currentItems = sortedQnaItems.slice(
+  const currentItems = qnaItems.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -24,7 +24,8 @@ const QnA = ({qnaItems}) => {
             <th>No</th>
             <th>카테고리</th>
             <th>제목</th>
-            <th>작성시간</th>
+            <th>작성날짜</th>
+            <th>답변</th>
           </tr>
         </thead>
         <tbody>
@@ -32,8 +33,13 @@ const QnA = ({qnaItems}) => {
           <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.category}</td>
-            <td>{item.title}</td>
+            <td>
+              <Link to={`/qna/detail/${item.id}`} className="text-decoration-none">
+                  {item.title}
+              </Link>
+            </td>
             <td>{item.date}</td>
+            <td>{item.comment}</td>
           </tr>
         ))}
         </tbody>
@@ -44,7 +50,7 @@ const QnA = ({qnaItems}) => {
           {/* <input type="text" placeholder="Search" />
           <button><FaSearch /></button> */}
         </div>
-        <Link to="/qna/write" className="qna-write">글쓰기</Link>
+        {/* <Link to="/qna/write" className="qna-write">글쓰기</Link> */}
       </div>
 
       <div className="pagination">

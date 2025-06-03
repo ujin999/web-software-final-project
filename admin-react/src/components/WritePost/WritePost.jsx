@@ -29,16 +29,19 @@ const WritePost = () => {
             />
           </div>
           <div className="form-group">
-            <label>카테고리</label>
+            <label>작성자</label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               required
             >
-              <option>계정</option>
-              <option>이용방법</option>
-              <option>커뮤니티 문제</option>
-              <option>기타</option>
+              <option>관리자</option>
+              <option>개발팀</option>
+              <option>운영팀</option>
+              <option>기획팀</option>
+              <option>법무팀</option>
+              <option>고객지원</option>
+              <option>마케팅팀</option>
             </select>
           </div>
         </div>

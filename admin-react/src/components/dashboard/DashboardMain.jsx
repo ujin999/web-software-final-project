@@ -135,13 +135,13 @@ export default function DashboardMain() {
 
         <div className="row">
           <div className="col-lg-4 col-sm-12">
-              <ApiResponseCard></ApiResponseCard>
+              <ApiResponseCard title={'서버 응답 시간'} value={'58ms'} percentage={' 12.7%'} icon={'down'} color='red'></ApiResponseCard>
           </div>
           <div className="col-lg-4 col-sm-12">
-              <ApiResponseCard></ApiResponseCard>
+              <ApiResponseCard title={'응답 지연 시간'} value={'91ms'} percentage={'7.8%'} icon={'up'} color='rgb(59, 170, 59)'></ApiResponseCard>
           </div>
           <div className="col-lg-4 col-sm-12">
-              <ApiResponseCard></ApiResponseCard>
+              <ApiResponseCard title={'CPU 사용률'} value={'71%'} percentage={'7.8%'} icon={'up'} color='rgb(59, 170, 59)'></ApiResponseCard>
           </div>
         </div>
 

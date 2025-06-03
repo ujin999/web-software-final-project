@@ -31,6 +31,8 @@ const NoticeTable = ({ noticeList }) => {
   const totalPages = pages.length;
   const currentItems = pages[currentPage - 1] || [];
 
+  let id = 1;
+
   return (
     <div className="notice-container">
       <h2 className="page-title">공지사항</h2>
@@ -49,6 +51,9 @@ const NoticeTable = ({ noticeList }) => {
             <tr key={item.id}>
               <td>{item.important ? <span className="badge badge-green">중요</span> : item.id}</td>
               <td>
+                <Link to={`/notice/detail/${item.id}`} className="text-decoration-none">
+                                  {item.title}
+                              </Link>
                 {item.title}
                 {item.isNew && <span className="badge badge-blue">N</span>}
               </td>
