@@ -3,10 +3,10 @@
 ### 🖥️주제 소개
 다양한 기능을 제공하는 관리자 페이지
 <br>
-#### 프로젝트의 목적
+#### 📌프로젝트 목적
 데이터 시각화, 분석, 통계 정보 수집 및 다양한 기능을 제공하는 관리자 페이지를 사용자에게 제공<br>
 
-#### 팀원 구성
+#### 🤝팀원 구성
 신우진 : 백엔드, 프론트엔드(부)<br>
 한문섭 : UI/UX 디자인 <br>
 권진용 : 레퍼런스, 문서 작업
@@ -29,8 +29,8 @@
 - [이메일](https://github.com/ujin999/web-software-final-project/tree/main/admin-react/src/components/Email)
 - [QnA](https://github.com/ujin999/web-software-final-project/tree/main/admin-react/src/components/QnA)
 
-#### 🖥️개발 환경 (🪛사용한 기술 항목의 버전들을 알려주시면 README.md 파일에 적용하겠습니다.
-주요 기술 스택의 버전들만 올려주셔도 무방합니다.)
+#### 🖥️개발 환경 
+(🪛사용한 기술 항목의 버전들을 알려주시면 README.md 파일에 적용하겠습니다. 주요 기술 스택의 버전들만 올려주셔도 무방합니다.)
 
 #### 웰컴 페이지
 ![welcome_page_1](https://github.com/user-attachments/assets/6591ddb8-991e-4a3d-a190-96ad77638750)
