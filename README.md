@@ -27,6 +27,6 @@ html, css, java script, Node.js, React, MySQL, Bootstrap, Chart.js
 
 #### 🛠️설치 방법 (예시 : 이미지 첨부)
 
-#### 📕사용 방법 (이미지 첨부, 이미지를 README.md에 첨부하려면 github에 해당 이미지가 업로드 되어있어야합니다!)
+#### 📕사용 방법 (이미지 첨부)
 
 #### 화면 구성(이미지 첨부)
