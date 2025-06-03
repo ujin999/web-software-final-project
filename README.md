@@ -7,7 +7,9 @@
 데이터 시각화, 분석, 통계 정보 수집 및 다양한 기능을 제공하는 관리자 페이지를 사용자에게 제공<br>
 
 #### 팀원 구성
-신우진, 한문섭, 권진용
+신우진 : 백엔드, 프론트엔드(부)
+한문섭 : UI/UX 디자인
+권진용 : 레퍼런스, 문서 작업
 
 ### 🪛사용한 기술
 html, css, java script, Node.js, React, MySQL, Bootstrap, Chart.js
@@ -20,10 +22,11 @@ html, css, java script, Node.js, React, MySQL, Bootstrap, Chart.js
 -  [이메일](https://github.com/ujin999/web-software-final-project/tree/main/admin-react/src/components/Email)
 -  [QnA](https://github.com/ujin999/web-software-final-project/tree/main/admin-react/src/components/QnA)
 
-#### 🖥️개발 환경
+#### 🖥️개발 환경 (🪛사용한 기술 항목의 버전들을 알려주시면 README.md 파일에 적용하겠습니다.
+주요 기술 스택의 버전들만 올려주셔도 무방합니다.)
 
-#### 🛠️설치 방법
+#### 🛠️설치 방법 (예시 : 이미지 첨부)
 
-#### 📕사용 방법 (이미지 첨부)
+#### 📕사용 방법 (이미지 첨부, 이미지를 README.md에 첨부하려면 github에 해당 이미지가 업로드 되어있어야합니다!)
 
 #### 화면 구성(이미지 첨부)
