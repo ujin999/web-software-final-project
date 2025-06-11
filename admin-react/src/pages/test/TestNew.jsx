@@ -7,15 +7,15 @@ import NoticeTable from "components/Notice/NoticTable";
 import QnA from "components/QnA/QnA";
 import WritePost from "components/WritePost/WritePost";
 import UserVisitChart from "components/Chart/UserVisitChart";
-import TodoCard from "components/DashBoard/TodoCard";
-import RecentPostsCard from "components/DashBoard/RecentPostsCard";
-import ServerStatusCard from "components/DashBoard/ServerStatusCard";
-import ApiResponseCard from "components/DashBoard/ApiResponseCard";
+import TodoCard from "components/dashboard/TodoCard";
+import RecentPostsCard from "components/dashboard/RecentPostsCard";
+import ServerStatusCard from "components/dashboard/ServerStatusCard";
+import ApiResponseCard from "components/dashboard/ApiResponseCard";
 
 export default function TestNew(){
   return(
       <>
-        <Line></Line> <Alert></Alert> <Article></Article>
+        {/* <Line></Line> <Alert></Alert> <Article></Article>
 
         <Community></Community> <NoticeList></NoticeList>
 
@@ -23,7 +23,7 @@ export default function TestNew(){
 
         <QnA></QnA>
 
-        <WritePost></WritePost>
+        <WritePost></WritePost> */}
 
         <UserVisitChart></UserVisitChart>
         

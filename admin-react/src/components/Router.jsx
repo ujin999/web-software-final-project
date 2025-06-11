@@ -26,7 +26,6 @@ import Graphs from './UsageSet/Graphs';
 import Tables from './UsageSet/Tables';
 import Cards from './UsageSet/Cards';
 
-
 // chart-js import
 import {
   Chart as ChartJS,
@@ -43,6 +42,9 @@ import {
 import EmailTable from './Email/Table/EmailTable';
 import WritePost from './WritePost/WritePost';
 import Community from './community_management/Community';
+import NoticeDetail from './Notice/NoticeDetail';
+import EmailDetail from './Email/Detail/EmailDetail';
+import UserEditForm from './community_management/UserEditForm';
 
 
 ChartJS.register(
@@ -57,8 +59,37 @@ ChartJS.register(
   Legend
 );
 
-
-/* 이메일 데이터 */
+// 캘린더 데이터
+const eventsTest = [
+  {
+    id: 0,
+    title: '서버 점검',
+    start: new Date(2025, 5, 5, 10, 0),
+    end: new Date(2025, 5, 6, 11, 0),
+    colorIndex: 0,
+  },
+  {
+    id: 1,
+    title: '개발 일정',
+    start: new Date(2025, 5, 6, 9, 0),
+    end: new Date(2025, 5, 9, 12, 0),
+    colorIndex: 1,
+  },
+  {
+    id: 2,
+    title: '기말고사',
+    start: new Date(2025, 5, 16, 9, 0),
+    end: new Date(2025, 5, 20, 12, 0),
+    colorIndex: 2,
+  },
+  {
+    id: 3,
+    title: 'react 클로즈 베타',
+    start: new Date(2025, 5, 19, 10, 0),
+    end: new Date(2025, 5, 19, 12, 0),
+    colorIndex: 3,
+  }
+];
 
 export default function Router() {
   // warnings 경고 데이터
@@ -135,7 +166,6 @@ export default function Router() {
     .then(res => res.json())
     .then(response => {
       setEmails(response);
-      console.log(response[0]);
     });
   }, []);
 
@@ -172,6 +202,7 @@ export default function Router() {
             {/* 사용자 데이터 */}
             <Route path="/user/check" element={<BasicTable options={userOptions} allData={allData} />}></Route>
             <Route path="/user/management" element={<Community users={users} />}></Route>
+            <Route path="/user/edit/:id" element={<UserEditForm />}></Route>
 
 
             {/* 커뮤니티 내용 조회 */}
@@ -181,10 +212,12 @@ export default function Router() {
             <Route path="email/list" element={<EmailTable emails={emails}></EmailTable>}></Route>
             
             <Route path="/email/send" element={<EmailSendBox />}></Route>
+            <Route path="/email/detail/:id" element={<EmailDetail />}></Route>
+
 
 
             {/* 캘린더 */}
-            <Route path="/calendar" element={<Calendar />}></Route>
+            <Route path="/calendar" element={<Calendar event={eventsTest} />}></Route>
 
             {/* Q&A */}
             <Route path="/qna" element={<QnA qnaItems={qnaItems}></QnA>}></Route>
@@ -194,6 +227,7 @@ export default function Router() {
             {/* 공지사항 */}
             <Route path="/notice" element={<NoticeTable noticeList={ noticeTableList }></NoticeTable>}></Route>
             <Route path="/notice/write" element={<WritePost></WritePost>}></Route>
+            <Route path="/notice/detail/:id" element={<NoticeDetail />} />
 
             {/* 에러 로그 */}
             <Route path="/errors" element={<Alert warnings={warnings}></Alert>}></Route>

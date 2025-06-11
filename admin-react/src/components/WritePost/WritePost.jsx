@@ -7,10 +7,31 @@ const WritePost = () => {
   const [content, setContent] = useState('');
   const [file, setFile] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({ title, category, content, file });
-    alert('글이 등록되었습니다.');
+
+    try {
+      const response = await fetch('http://localhost:5001/api/notices/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          writer: category,
+          content,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('등록 실패');
+      }
+
+      alert('글이 등록되었습니다.');
+      window.location.href = '/notice/list'; // 등록 후 목록 페이지로 이동
+    } catch (err) {
+      alert('등록 중 오류 발생: ' + err.message);
+    }
   };
 
   return (
@@ -59,16 +80,21 @@ const WritePost = () => {
 
         <div className="form-group">
           <label>파일 업로드</label>
-          <input
-            type="file"
-            onChange={(e) => setFile(e.target.files[0])}
-          />
+          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
           {file && <span className="file-name">{file.name}</span>}
         </div>
 
         <div className="form-buttons">
-          <button type="submit" className="submit-btn">작성완료</button>
-          <button type="button" className="cancel-btn" onClick={() => window.history.back()}>취소</button>
+          <button type="submit" className="submit-btn">
+            작성완료
+          </button>
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() => window.history.back()}
+          >
+            취소
+          </button>
         </div>
       </form>
     </div>

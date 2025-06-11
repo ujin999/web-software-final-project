@@ -77,3 +77,11 @@
   color: white;
   font-size: 18px;
 }
+
+.fw-semibold {
+  color: rgb(12, 100, 233);
+}
+
+.fw-semibold:hover {
+  color: rgb(53, 88, 169);
+}

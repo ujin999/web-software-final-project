@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Community.css';
 import { FaEdit } from 'react-icons/fa';
 
-const Community = ({users}) => {
-
+const Community = ({ users }) => {
   const itemsPerPage = 10;
   const totalPages = Math.ceil(users.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +17,8 @@ const Community = ({users}) => {
     if (page >= 1 && page <= totalPages) setCurrentPage(page);
   };
 
+  const navigate = useNavigate();
+
   return (
     <div className="community-container">
       <div className="community-card">
@@ -28,7 +30,6 @@ const Community = ({users}) => {
           <thead>
             <tr>
               {/* <th><input type="checkbox" /></th> */}
-              <th></th>
               <th>이름</th>
               <th>ID</th>
               <th>가입날짜</th>
@@ -38,28 +39,36 @@ const Community = ({users}) => {
           </thead>
           <tbody>
             {currentData.map((customer, i) => (
-              <tr key={i}>
-              <td><input type="checkbox" /></td>
-              <td>
-                <div className="name-cell">
-                  <span>{customer.name}</span>
-                </div>
-              </td>
-              <td>{customer.id}</td>
-              <td>{customer.date}</td>
-              <td>{customer.email}</td>
-              <td>
-                <div className="action-icons">
-                  <button><FaEdit /></button>
-                </div>
-              </td>
-            </tr>
+              <tr key={customer.id}>
+                <td>
+                  <div className="name-cell">
+                    <span>{customer.name}</span>
+                  </div>
+                </td>
+                <td>{customer.id}</td>
+                <td>{customer.date}</td>
+                <td>{customer.email}</td>
+                <td>
+                  <div className="action-icons">
+                    <button
+                      onClick={() => navigate(`/user/edit/${customer.id}`)}
+                    >
+                      <FaEdit />
+                    </button>
+                  </div>
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>
 
         <div className="pagination">
-          <button onClick={() => changePage(currentPage - 1)} disabled={currentPage === 1}>←</button>
+          <button
+            onClick={() => changePage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            ←
+          </button>
           {[...Array(totalPages)].map((_, i) => (
             <button
               key={i}
@@ -69,7 +78,12 @@ const Community = ({users}) => {
               {i + 1}
             </button>
           ))}
-          <button onClick={() => changePage(currentPage + 1)} disabled={currentPage === totalPages}>→</button>
+          <button
+            onClick={() => changePage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            →
+          </button>
         </div>
       </div>
     </div>

@@ -51,46 +51,83 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
-const resources = [
-  { resourceId: 1, resourceTitle: 'Board room' },
-  { resourceId: 2, resourceTitle: 'Training room' },
-];
+// const resources = [
+//   { resourceId: 1, resourceTitle: '커뮤니티 공식행사' },
+//   { resourceId: 2, resourceTitle: '서버 점검' },
+//   { resourceId: 3, resourceTitle: '어드민 페이지 발표' },
+//   { resourceId: 4, resourceTitle: 'react 클로즈 베타' },
+// ];
 
 let eventId = 0;
-const events = Array.from({ length: 1 }, (_, k) => k).flatMap((i) => {
-  const currentResource = resources[i % resources.length];
-  const now = new Date();
-  const dayDiff = 0;
-  const j = 1;
+let addDiff = 0;
+// const events = Array.from({ length: resources.length }, (_, k) => k).flatMap((i) => {
+//   const currentResource = resources[i % resources.length];
+//   const now = new Date();
+//   const dayDiff = 0;
+//   const j = 1;
 
-  const date1 = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate() + dayDiff,
-    9 + (j % 4),
-    0,
-    0
-  );
+//   const date1 = new Date(
+//     now.getFullYear(),
+//     now.getMonth(),
+//     now.getDate() + dayDiff + addDiff,
+//     9 + (j % 4),
+//     0,
+//     0
+//   );
 
-  const date2 = new Date(
-    now.getFullYear(),
-    now.getMonth(),
-    now.getDate() + dayDiff + 3,
-    15 + (j % 4),
-    0,
-    0
-  );
+//   const date2 = new Date(
+//     now.getFullYear(),
+//     now.getMonth(),
+//     now.getDate() + dayDiff + addDiff + 1,
+//     15 + (j % 4),
+//     0,
+//     0
+//   );
 
-  return Array.from({ length: 5 }, (_, j) => ({
-    id: eventId++,
-    title: `Event ${i + j} _ ${currentResource.resourceTitle}`,
-    start: date1,
-    end: date2,
-    resourceId: currentResource.resourceId,
-  }));
-});
+//   addDiff += 5;
 
-export default function ManagementCalendar() {
+//   return Array.from({ length: 1 }, (_, j) => ({
+//     id: eventId++,
+//     title: `Event ${i + j + 1} _ ${currentResource.resourceTitle}`,
+//     start: date1,
+//     end: date2,
+//     resourceId: currentResource.resourceId,
+//     colorIndex: eventId - 1
+//   }));
+// });
+
+// const eventsTest = [
+//   {
+//     id: 0,
+//     title: '서버 점검',
+//     start: new Date(2025, 5, 5, 10, 0),
+//     end: new Date(2025, 5, 6, 11, 0),
+//     colorIndex: 0,
+//   },
+//   {
+//     id: 1,
+//     title: '개발 일정',
+//     start: new Date(2025, 5, 6, 9, 0),
+//     end: new Date(2025, 5, 9, 12, 0),
+//     colorIndex: 1,
+//   },
+//   {
+//     id: 2,
+//     title: '기말고사',
+//     start: new Date(2025, 5, 16, 9, 0),
+//     end: new Date(2025, 5, 20, 12, 0),
+//     colorIndex: 2,
+//   },
+//   {
+//     id: 3,
+//     title: 'react 클로즈 베타',
+//     start: new Date(2025, 5, 19, 10, 0),
+//     end: new Date(2025, 5, 19, 12, 0),
+//     colorIndex: 3,
+//   }
+// ];
+
+export default function ManagementCalendar({event}) {
   const { defaultDate } = useMemo(() => {
     return { defaultDate: new Date() };
   }, []);
@@ -102,7 +139,7 @@ export default function ManagementCalendar() {
           culture="ko"
           defaultDate={defaultDate}
           localizer={localizer}
-          events={events}
+          events={event}
           startAccessor="start"
           endAccessor="end"
           step={60}

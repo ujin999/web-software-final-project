@@ -22,8 +22,8 @@ const QnA = ({qnaItems}) => {
         <thead>
           <tr>
             <th>No</th>
-            <th>카테고리</th>
             <th>제목</th>
+            <th>카테고리</th>
             <th>작성날짜</th>
             <th>답변</th>
           </tr>
@@ -32,12 +32,12 @@ const QnA = ({qnaItems}) => {
         {currentItems.map((item) => (
           <tr key={item.id}>
             <td>{item.id}</td>
-            <td>{item.category}</td>
             <td>
               <Link to={`/qna/detail/${item.id}`} className="text-decoration-none">
                   {item.title}
               </Link>
             </td>
+            <td>{item.category}</td>
             <td>{item.date}</td>
             <td>{item.comment}</td>
           </tr>

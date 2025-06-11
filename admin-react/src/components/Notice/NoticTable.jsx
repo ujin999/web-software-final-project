@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './NoticeTable.css';
 import { Link } from 'react-router-dom';
 
+
 const NoticeTable = ({ noticeList }) => {
   const allNotices = noticeList || [];
 
@@ -9,8 +10,21 @@ const NoticeTable = ({ noticeList }) => {
   const itemsPerPage = 12;
   const newCount = 5;
 
-  const importantNotices = allNotices.filter(n => n.important).sort((a, b) => a.id - b.id);
-  const normalNotices = allNotices.filter(n => !n.important).sort((a, b) => a.id - b.id);
+  const importantNotices = allNotices
+  .filter(n => n.important)
+  .sort((a, b) => {
+    const dateA = a.date.split(' ')[0];
+    const dateB = b.date.split(' ')[0];
+    return new Date(dateB) - new Date(dateA);
+  });
+  
+  const normalNotices = allNotices
+  .filter(n => !n.important)
+  .sort((a, b) => {
+    const dateA = a.date.split(' ')[0];
+    const dateB = b.date.split(' ')[0];
+    return new Date(dateB) - new Date(dateA);
+  });
 
   const normalNoticesWithNew = normalNotices.map((item, index) => ({
     ...item,
@@ -31,7 +45,7 @@ const NoticeTable = ({ noticeList }) => {
   const totalPages = pages.length;
   const currentItems = pages[currentPage - 1] || [];
 
-  let id = 1;
+  let id = 1 + itemsPerPage * (currentPage - 1);
 
   return (
     <div className="notice-container">
@@ -49,12 +63,12 @@ const NoticeTable = ({ noticeList }) => {
         <tbody>
           {currentItems.map((item) => (
             <tr key={item.id}>
-              <td>{item.important ? <span className="badge badge-green">중요</span> : item.id}</td>
+              <td>{item.important ? <span className="badge badge-green">중요</span> : id++}</td>
               <td>
                 <Link to={`/notice/detail/${item.id}`} className="text-decoration-none">
                                   {item.title}
                               </Link>
-                {item.title}
+                {/* {item.title} */}
                 {item.isNew && <span className="badge badge-blue">N</span>}
               </td>
               <td>{item.writer}</td>
