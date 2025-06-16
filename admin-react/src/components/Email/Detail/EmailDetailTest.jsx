@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-export default function EmailDetail() {
+export default function EmailDetailTest() {
   const { id } = useParams();
   const [email, setEmail] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/api/emails/detail/${id}`)
-      .then((res) => {
-        if (!res.ok) throw new Error("이메일을 불러오지 못했습니다.");
-        return res.json();
-      })
-      .then((data) => setEmail(data))
-      .catch((error) => {
-        console.error("이메일 불러오기 실패:", error);
-      });
+    const dummyData = {
+      subject: "예시 이메일 제목",
+      email: "example@domain.com",
+      date: "2025-06-15T09:30:00",
+      preview: "이것은 이메일 미리보기입니다.",
+      content: "이것은 본문 내용입니다. 실제 API 호출 없이도 화면을 구성할 수 있습니다.",
+    };
+
+    const timer = setTimeout(() => {
+      setEmail(dummyData);
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [id]);
 
   if (!email) return <div className="container mt-5">로딩 중...</div>;

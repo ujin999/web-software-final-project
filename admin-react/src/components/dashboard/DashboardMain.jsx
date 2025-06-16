@@ -3,15 +3,20 @@ import React, { useEffect, useState } from "react";
 import './DashboardMain.css'
 
 // import Line from "components/Chart/Line_Chart";
-import Alert from "components/Chart/Alert";
-import NoticeList from "components/Notice/NoticeList";
+import Alert from "components/Card/Alert";
+import NoticeList from "components/Card/NoticeList";
 import MainCard from 'components/Card/MainCard';
 import DoughnutChart from 'components/Chart/Doughnut';
 import LineChartV2 from 'components/Chart/Line-Chart-v2';
 import LineChartV3 from 'components/Chart/Line-Chart-v3';
 import UserVisitChart from 'components/Chart/UserVisitChart';
-import ApiResponseCard from './ApiResponseCard';
-import ServerStatusCard from './ServerStatusCard';
+import ApiResponseCard from 'components/Card/ApiResponseCard';
+
+const visitData = {
+  '3days': [38, 42, 57, 33, 29, 65, 72, 68, 41, 39, 52, 66, 71, 62, 58, 49, 44, 59, 74, 69, 60, 48, 36, 31],
+  'yesterday': [45, 54, 39, 27, 51, 63, 67, 73, 66, 61, 58, 55, 52, 50, 48, 46, 43, 41, 38, 36, 34, 31, 29, 26],
+  'today': [30, 10, 18, 10, 20, 16, 31, 30, 30, 68, 60, 100, 61, 30, 60, 24, 35, 57, 22, 52, 70, 55, 40, 42]
+};
 
 export default function DashboardMain() {
   // 카드 데이터
@@ -173,7 +178,7 @@ export default function DashboardMain() {
 
         <div className='row'>
           <div className="uservisit-box">
-            <UserVisitChart></UserVisitChart>
+            <UserVisitChart visitData={visitData}></UserVisitChart>
           </div>
         </div>
 

@@ -111,20 +111,6 @@ let addDiff = 0;
 //     end: new Date(2025, 5, 9, 12, 0),
 //     colorIndex: 1,
 //   },
-//   {
-//     id: 2,
-//     title: '기말고사',
-//     start: new Date(2025, 5, 16, 9, 0),
-//     end: new Date(2025, 5, 20, 12, 0),
-//     colorIndex: 2,
-//   },
-//   {
-//     id: 3,
-//     title: 'react 클로즈 베타',
-//     start: new Date(2025, 5, 19, 10, 0),
-//     end: new Date(2025, 5, 19, 12, 0),
-//     colorIndex: 3,
-//   }
 // ];
 
 export default function ManagementCalendar({event}) {

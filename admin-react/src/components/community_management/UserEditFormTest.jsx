@@ -6,15 +6,14 @@ function UserEditForm() {
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState({
-    user_id: '',
+    id: '',
     name: '',
-    signup_date: '',
+    date: '',
     email: ''
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // 유저 정보 가져오기
   useEffect(() => {
     async function fetchUser() {
       try {
@@ -31,53 +30,25 @@ function UserEditForm() {
     fetchUser();
   }, [id]);
 
-  // 입력 변경 핸들러
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // 수정 핸들러
-  const handleUpdate = (e) => {
-    e.preventDefault(); // 폼 제출 방지
-
-    fetch(`http://localhost:5001/api/users/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name: userData.name,
-        email: userData.email,
-      }),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error('수정 실패');
-        alert('수정 완료!');
-        navigate('/user/management');
-      })
-      .catch((err) => {
-        console.error(err);
-        alert('수정 중 오류 발생');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`http://localhost:5001/api/users/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData),
       });
-  };
-
-  // 삭제 핸들러
-  const handleDelete = () => {
-    if (!window.confirm('정말 삭제하시겠습니까?')) return;
-
-    fetch(`http://localhost:5001/api/users/${id}`, {
-      method: 'DELETE',
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error('삭제 실패');
-        alert('삭제 완료!');
-        navigate('/user/management');
-      })
-      .catch((err) => {
-        console.error(err);
-        alert('삭제 중 오류 발생');
-      });
+      if (!res.ok) throw new Error('수정에 실패했습니다.');
+      alert('수정 완료!');
+      navigate('/user/management');
+    } catch (err) {
+      alert(err.message);
+    }
   };
 
   if (loading) return <div className="container mt-5">로딩 중...</div>;
@@ -90,10 +61,10 @@ function UserEditForm() {
           <h5 className="mb-0">회원 정보 수정</h5>
         </div>
         <div className="card-body">
-          <form onSubmit={handleUpdate}>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="form-label fw-bold">ID</label>
-              <input type="text" className="form-control" name="user_id" value={userData.user_id} readOnly />
+              <input type="text" className="form-control" name="id" value={userData.user_id} readOnly />
             </div>
 
             <div className="mb-3">
@@ -113,8 +84,9 @@ function UserEditForm() {
               <input
                 type="text"
                 className="form-control"
-                name="signup_date"
+                name="date"
                 value={userData.signup_date}
+                onChange={handleChange}
                 readOnly
               />
             </div>
@@ -132,33 +104,12 @@ function UserEditForm() {
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'right' }}>
-              <button
-                type="button"
-                onClick={handleDelete}
-                className="btn text-white col-lg-3"
-                style={{
-                  width: '87px',
-                  backgroundColor: 'rgb(98, 124, 186)',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  fontSize: '18px',
-                  marginRight: '10px'
-                }}
-              >
-                삭제
-              </button>
-              <button
+              
+            <button
                 type="submit"
                 className="btn text-white col-lg-3"
-                style={{
-                  width: '87px',
-                  backgroundColor: 'rgb(98, 124, 186)',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  fontSize: '18px'
-                }}
+                style={{ width: '87px', backgroundColor: 'rgb(98, 124, 186)', display: 'flex', justifyContent: 'center',
+                  alignItems: 'center', fontSize: '18px'}}
               >
                 수정
               </button>

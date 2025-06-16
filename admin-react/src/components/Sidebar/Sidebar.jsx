@@ -338,6 +338,14 @@ export default function Sidebar() {
                   <span>Forms</span>
                 </Link>
               </li>
+              <li>
+                <Link to='/usage/presentation' className={`submenu-item link-body-emphasis d-inline-flex text-decoration-none rounded ${activeMenu === 'usage-presentation' ? 'active' : ''}`}
+                        onClick={() => { 
+                          toggleMenuAndSetActive('usage-presentation');
+                  }}>
+                  <span>For Presentation</span>
+                </Link>
+              </li>
             </ul>
           </div>
 

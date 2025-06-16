@@ -14,15 +14,16 @@ import {
   FaTachometerAlt,
   FaGithub,
 } from 'react-icons/fa';
-import { AiOutlineAliwangwang } from 'react-icons/ai';
 import adminImage from './admin.png';
 import alertImg from './Alert.png';
 import './WelcomePage.css';
 
+import { AiOutlineAliwangwang } from "react-icons/ai";
+
 const Navbar = () => (
   <nav className="navbar">
     <div className="logo">
-      <AiOutlineAliwangwang size={40} />
+      <AiOutlineAliwangwang />
       <div className="logo-text">껌이지 어드민</div>
     </div>
   </nav>

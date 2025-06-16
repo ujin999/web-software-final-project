@@ -17,7 +17,7 @@ import DashboardMain from './dashboard/DashboardMain';
 import QnA from "components/QnA/QnA";
 import QnADetail from './QnA/QnADetail';
 import NoticeTable from './Notice/NoticTable';
-import Alert from "components/Chart/Alert";
+import Alert from "components/Card/Alert";
 
 // usage
 import Calendars from './UsageSet/Calendars';
@@ -25,6 +25,7 @@ import Forms from './UsageSet/Forms';
 import Graphs from './UsageSet/Graphs';
 import Tables from './UsageSet/Tables';
 import Cards from './UsageSet/Cards';
+import PresentationTest from './UsageSet/PresentaionTest';
 
 // chart-js import
 import {
@@ -45,6 +46,8 @@ import Community from './community_management/Community';
 import NoticeDetail from './Notice/NoticeDetail';
 import EmailDetail from './Email/Detail/EmailDetail';
 import UserEditForm from './community_management/UserEditForm';
+import ArticleDetail from './Chart/ArticleDetail';
+
 
 
 ChartJS.register(
@@ -178,7 +181,6 @@ export default function Router() {
     { value: 'users', label: '👤 사용자 목록' },
     { value: 'community', label: '💬 커뮤니티 글'},
     { value: 'visitors', label: '📊 방문자 통계'},
-
   ];
 
   const userOptions = [
@@ -207,6 +209,7 @@ export default function Router() {
 
             {/* 커뮤니티 내용 조회 */}
             <Route path="/community" element={<Article posts={posts} />}></Route>
+            <Route path="/community/detail/1" element={<ArticleDetail></ArticleDetail>}></Route>
 
             {/* 이메일 */}
             <Route path="email/list" element={<EmailTable emails={emails}></EmailTable>}></Route>
@@ -238,6 +241,7 @@ export default function Router() {
             <Route path="/usage/graph" element={<Graphs></Graphs>}></Route>
             <Route path="/usage/form" element={<Forms></Forms>}></Route>
             <Route path="/usage/table" element={<Tables></Tables>}></Route>
+            <Route path="/usage/presentation" element={<PresentationTest></PresentationTest>}></Route>
             
             {/* <Route path="/" element={<Test />} />{' '} */}
             {/** 루트(/) 경로를 라우터로 잡아줌 */}

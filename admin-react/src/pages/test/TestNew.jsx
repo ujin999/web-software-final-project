@@ -1,16 +1,16 @@
 import Line from "components/Chart/Line_Chart";
-import Alert from "components/Chart/Alert";
+import Alert from "components/Card/Alert";
 import Article from "components/Chart/Article";
 import Community from "components/community_management/Community"
-import NoticeList from "components/Notice/NoticeList";
+import NoticeList from "components/Card/NoticeList";
 import NoticeTable from "components/Notice/NoticTable";
 import QnA from "components/QnA/QnA";
 import WritePost from "components/WritePost/WritePost";
 import UserVisitChart from "components/Chart/UserVisitChart";
-import TodoCard from "components/dashboard/TodoCard";
+import TodoCard from "components/Card/TodoCard";
 import RecentPostsCard from "components/dashboard/RecentPostsCard";
-import ServerStatusCard from "components/dashboard/ServerStatusCard";
-import ApiResponseCard from "components/dashboard/ApiResponseCard";
+import ServerStatusCard from "components/Card/ServerStatusCard";
+import ApiResponseCard from "components/Card/ApiResponseCard";
 
 export default function TestNew(){
   return(

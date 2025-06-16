@@ -1,60 +1,135 @@
 import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler,
+} from "chart.js";
 
-const labels = ["Day 1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"];
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  Filler
+);
+
+
+
+const AreaLineChart = ({visitors}) => {
+  const labels = ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6", "Day 7"];
+
 const data = {
   labels,
   datasets: [
     {
-      label: "Visitor",
-      data: [6000, 7000, 7000, 7600, 10000, 12000, 13000],
-      borderColor: "rgb(16, 29, 107)",
+      label: "방문자수",
+      data: visitors,
+      fill: true,
+      borderColor: "#3b82f6",
       backgroundColor: (context) => {
         const ctx = context.chart.ctx;
-        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-        gradient.addColorStop(0, "rgba(18, 32, 138, 0.4)");
-        gradient.addColorStop(1, "rgba(43, 87, 192, 0.31)");
+        const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, "rgba(147, 197, 253, 0.6)");
+        gradient.addColorStop(1, "rgba(191, 219, 254, 0.2)");
         return gradient;
       },
+      tension: 0.4,
+      pointRadius: 4,
+      pointBackgroundColor: "#2563eb",
       borderWidth: 2,
-      fill: true,
-      tension: 0,
-      pointRadius: 0,
     },
-
   ],
 };
 
 const options = {
   responsive: true,
+  maintainAspectRatio: false,
   interaction: {
     intersect: false,
+    mode: "index",
+  },
+  plugins: {
+    legend: {
+      display: true,
+      position: "bottom",
+      labels: {
+        font: {
+          size: 14,
+          family: "'Segoe UI', sans-serif",
+        },
+        color: "#333",
+      },
+    },
+    title: {
+      display: true,
+      text: "일일 방문자 수",
+      align: "start",
+      font: {
+        size: 15,
+        weight: "bold",
+        family: "'Segoe UI', sans-serif",
+      },
+      padding: {
+        bottom: 35,
+      },
+      color: "#222",
+    },
+    tooltip: {
+      backgroundColor: "#fff",
+      titleColor: "#333",
+      bodyColor: "#666",
+      borderColor: "#ddd",
+      borderWidth: 1,
+    },
   },
   scales: {
     x: {
       grid: {
         display: false,
       },
+      ticks: {
+        color: "#444",
+        font: {
+          family: "'Segoe UI', sans-serif",
+        },
+      },
     },
-  },
-  plugins: {
-    legend: {
-      position: "bottom",
-    },
-    title: {
-      display: true,
-      text: "Visitor",
-      align: "start", 
-      padding: {
-        bottom: 20,
+    y: {
+      grid: {
+        color: "rgba(0, 0, 0, 0.05)",
+      },
+      ticks: {
+        color: "#444",
+        font: {
+          family: "'Segoe UI', sans-serif",
+        },
       },
     },
   },
 };
-
-const AreaLineChart = () => {
   return (
-    <div style={{ width: 800, height: 400 }}>
-      <Line data={data} options={options} />
+    <div
+      style={{
+        width: "100%",
+        height: "auto",
+        padding: "20px",
+        borderRadius: "16px",
+        boxShadow: "0 2px 6px rgba(0, 0, 0, 0.08)",
+        backgroundColor: "#ffffff",
+      }}
+    >
+      <div style={{ position: "relative", height: "400px", width: "100%" }}>
+        <Line data={data} options={options} />
+      </div>
     </div>
   );
 };

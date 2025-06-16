@@ -5,6 +5,7 @@ import logoImg from '../../img/logo192.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCircleUser} from '@fortawesome/free-solid-svg-icons'
+import { AiFillAliwangwang } from "react-icons/ai";
 
 
 export default function Navbar() {
@@ -16,9 +17,8 @@ export default function Navbar() {
           
           <div className="logo-container">
             <Link className='navbar-brand' to="/">
-              <img className='d-inline-block align-text-top navbar-logo' src={logoImg} alt="logo" />
-
-              <span className='logo-text'>React Admin</span>
+              <AiFillAliwangwang size={30} color='rgb(72, 109, 166)' />
+              <div className="logo-text">껌이지 어드민</div>
             </Link>
           </div>
 

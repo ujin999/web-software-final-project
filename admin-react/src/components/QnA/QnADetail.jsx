@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 export default function QnADetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [qna, setQna] = useState(null);
   const [newComment, setNewComment] = useState('');
 
@@ -19,6 +20,25 @@ export default function QnADetail() {
         console.error('QnA 데이터 불러오기 실패:', error);
       });
   }, [id]);
+
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm('정말 삭제하시겠습니까?');
+    if (!confirmDelete) return;
+
+    try {
+      const res = await fetch(`http://localhost:5001/api/qna-detail/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!res.ok) throw new Error('삭제 실패');
+
+      alert('삭제가 완료되었습니다.');
+      navigate('/qna'); // 삭제 후 QnA 목록 페이지로 이동
+    } catch (err) {
+      console.error('삭제 중 오류:', err);
+      alert('삭제 중 문제가 발생했습니다.');
+    }
+  };
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
@@ -112,8 +132,9 @@ export default function QnADetail() {
                 backgroundColor: 'rgb(98, 124, 186)',
                 width: '55px',
               }}
-              type="submit"
+              type="button"
               className="btn text-white col-md-3"
+              onClick={handleDelete}
             >
               삭제
             </button>

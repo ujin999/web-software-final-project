@@ -26,11 +26,9 @@ export default function Calendars() {
 
   return (
     <div className="explain-admin">
-      <h1>Explain Admin</h1>
+      <h1>Calendar Component</h1>
       <p className="explain-description">
-        이 컴포넌트는 구조적으로 모듈화된 형태로 작성되어 있어, 별도의 수정
-        없이도 코드를 그대로 복사해 프로젝트에 분석결과만 히면 즉시 정상적으로
-        동작합니다.
+      캘린더 컴포넌트는 날짜와 일정을 시각적으로 관리하고 표시하기 위한 UI 요소입니다.<br></br> 사용자가 쉽게 특정 날짜를 선택하거나, 일정 이벤트를 확인 및 추가할 수 있도록 직관적인 인터페이스를 제공합니다.
       </p>
 
       <div className="alert-section">
