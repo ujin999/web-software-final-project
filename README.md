@@ -30,7 +30,9 @@
 - [QnA](https://github.com/ujin999/web-software-final-project/tree/main/admin-react/src/components/QnA)
 
 #### 🖥️개발 환경 
-(🪛사용한 기술 항목의 버전들을 알려주시면 README.md 파일에 적용하겠습니다. 주요 기술 스택의 버전들만 올려주셔도 무방합니다.)
+npm: 10.8.2
+node: 20.19.1
+react: 19.1.0
 
 #### 웰컴 페이지
 ![welcome_page_1](https://github.com/user-attachments/assets/6591ddb8-991e-4a3d-a190-96ad77638750)
