@@ -30,8 +30,8 @@
 - [QnA](https://github.com/ujin999/web-software-final-project/tree/main/admin-react/src/components/QnA)
 
 #### 🖥️개발 환경 
-npm: 10.8.2
-node: 20.19.1
+npm: 10.8.2<br>
+node: 20.19.1<br>
 react: 19.1.0
 
 #### 웰컴 페이지
